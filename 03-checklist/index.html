@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Provider Credentialing Checklist | The Marketing Pros</title>
+  <meta name="description" content="The step-by-step provider credentialing checklist used by 500+ practices. Interactive, printable, and free." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B3A6B;
+      --blue:   #0EA5E9;
+      --blue-d: #0284C7;
+      --green:  #10B981;
+      --green-d:#059669;
+      --amber:  #F59E0B;
+      --slate:  #64748B;
+      --bg:     #F1F5F9;
+      --white:  #FFFFFF;
+      --text:   #1E293B;
+      --border: #E2E8F0;
+      --font:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    .header {
+      background: var(--navy);
+      padding: 18px 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header-logo {
+      width: 32px; height: 32px;
+      background: var(--blue); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 14px;
+    }
+    .header-name { color: #fff; font-size: 15px; font-weight: 600; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5299 100%);
+      color: #fff;
+      text-align: center;
+      padding: 56px 24px 44px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,158,11,.25);
+      border: 1px solid rgba(245,158,11,.5);
+      color: #FCD34D;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 4.5vw, 38px);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -.02em; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #38BDF8; }
+    .hero p {
+      font-size: 16px; color: #CBD5E1;
+      max-width: 540px; margin: 0 auto; line-height: 1.6;
+    }
+
+    /* Gate overlay */
+    .gate-overlay {
+      position: fixed; inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .gate-box {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 36px;
+      max-width: 460px;
+      width: 100%;
+      box-shadow: 0 25px 60px rgba(0,0,0,.35);
+      text-align: center;
+    }
+    .gate-icon { font-size: 40px; margin-bottom: 16px; }
+    .gate-box h2 {
+      font-size: 22px; font-weight: 800;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .gate-box p {
+      font-size: 14px; color: var(--slate);
+      line-height: 1.6; margin-bottom: 24px;
+    }
+    .gate-box input {
+      width: 100%; height: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px; font-family: var(--font);
+      padding: 0 14px; color: var(--text);
+      transition: border-color .15s;
+      margin-bottom: 10px;
+    }
+    .gate-box input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.15);
+    }
+    .gate-box input::placeholder { color: #94A3B8; }
+    .gate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    @media (max-width: 380px) { .gate-grid { grid-template-columns: 1fr; } }
+    .btn-unlock {
+      display: block; width: 100%; height: 52px;
+      background: var(--navy); color: #fff;
+      border: none; border-radius: 10px;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: background .15s;
+      margin-top: 4px;
+    }
+    .btn-unlock:hover { background: #152e57; }
+    .gate-disclaimer { font-size: 11px; color: #94A3B8; margin-top: 10px; }
+    .gate-teaser {
+      margin-top: 20px;
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: left;
+    }
+    .gate-teaser-title {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: var(--slate); margin-bottom: 10px;
+    }
+    .teaser-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--text);
+      margin-bottom: 6px;
+    }
+    .teaser-item:last-child { margin-bottom: 0; }
+    .teaser-check { color: var(--green); font-weight: 700; }
+
+    /* Main content */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      filter: blur(3px);
+      user-select: none;
+      pointer-events: none;
+      transition: filter .5s, opacity .5s;
+    }
+    .container.unlocked {
+      filter: none;
+      user-select: auto;
+      pointer-events: all;
+    }
+
+    /* Progress summary */
+    .progress-summary {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .progress-circle {
+      width: 64px; height: 64px; flex-shrink: 0;
+      position: relative;
+    }
+    .progress-circle svg { transform: rotate(-90deg); }
+    .pcircle-bg { fill: none; stroke: var(--border); stroke-width: 7; }
+    .pcircle-fill { fill: none; stroke: var(--green); stroke-width: 7; stroke-linecap: round; transition: stroke-dashoffset .5s; }
+    .pcircle-text {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800;
+      color: var(--navy);
+    }
+    .progress-info { flex: 1; }
+    .progress-info h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .progress-info p { font-size: 13px; color: var(--slate); }
+    .btn-print {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--slate);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-print:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* Phase blocks */
+    .phase {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .phase-header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .phase-icon {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .phase-info { flex: 1; }
+    .phase-title { font-size: 16px; font-weight: 700; color: var(--navy); }
+    .phase-sub { font-size: 13px; color: var(--slate); margin-top: 2px; }
+    .phase-badge {
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .phase-chevron { color: var(--slate); transition: transform .25s; font-size: 18px; }
+    .phase.collapsed .phase-chevron { transform: rotate(-90deg); }
+
+    .phase-body { padding: 0 24px 20px; }
+    .phase.collapsed .phase-body { display: none; }
+
+    /* Checklist items */
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #F8FAFC;
+      cursor: pointer;
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-box {
+      width: 22px; height: 22px;
+      border: 2px solid var(--border);
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all .15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .check-item.done .check-box {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .check-item.done .check-box::after {
+      content: '✓';
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .check-item.done .check-label { text-decoration: line-through; color: #94A3B8; }
+    .check-label { font-size: 14px; font-weight: 500; line-height: 1.4; }
+    .check-note { font-size: 12px; color: var(--slate); margin-top: 3px; line-height: 1.4; }
+    .check-tag {
+      margin-left: auto;
+      font-size: 11px; font-weight: 600;
+      padding: 2px 7px; border-radius: 4px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* Phase color schemes */
+    .phase-1 .phase-icon { background: #EFF6FF; }
+    .phase-1 .phase-header { border-left: 4px solid #3B82F6; }
+    .phase-2 .phase-icon { background: #FFF7ED; }
+    .phase-2 .phase-header { border-left: 4px solid #F59E0B; }
+    .phase-3 .phase-icon { background: #F0FDF4; }
+    .phase-3 .phase-header { border-left: 4px solid var(--green); }
+    .phase-4 .phase-icon { background: #FDF4FF; }
+    .phase-4 .phase-header { border-left: 4px solid #A855F7; }
+    .phase-5 .phase-icon { background: #FFF1F2; }
+    .phase-5 .phase-header { border-left: 4px solid #F43F5E; }
+
+    /* CTA */
+    .cta-section {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      color: #fff;
+      margin-top: 32px;
+    }
+    .cta-section h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+    .cta-section p { font-size: 14px; color: #94A3B8; margin-bottom: 20px; line-height: 1.5; }
+    .btn-cta {
+      display: inline-block; background: var(--blue); color: #fff;
+      text-decoration: none; padding: 14px 28px; border-radius: 10px;
+      font-size: 15px; font-weight: 700; transition: background .15s;
+    }
+    .btn-cta:hover { background: var(--blue-d); }
+
+    @media print {
+      .gate-overlay, .header, .hero, .progress-summary, .cta-section, .btn-print { display: none !important; }
+      .container { filter: none !important; pointer-events: all !important; padding: 0; }
+      .phase { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Gate overlay -->
+<div class="gate-overlay" id="gateOverlay">
+  <div class="gate-box">
+    <div class="gate-icon">📋</div>
+    <h2>Get Your Free Credentialing Checklist</h2>
+    <p>The step-by-step checklist our specialists use with every new provider. 5 phases, 36 action items, zero guesswork.</p>
+
+    <div class="gate-grid">
+      <input type="text" id="gFirst" placeholder="First name" />
+      <input type="text" id="gLast" placeholder="Last name" />
+    </div>
+    <input type="text" id="gPractice" placeholder="Practice or organization name" />
+    <input type="email" id="gEmail" placeholder="Work email address" />
+    <button class="btn-unlock" onclick="unlockChecklist()">Unlock Free Checklist →</button>
+    <div class="gate-disclaimer">No spam. Unsubscribe anytime.</div>
+
+    <div class="gate-teaser">
+      <div class="gate-teaser-title">What's inside</div>
+      <div class="teaser-item"><span class="teaser-check">✓</span> Phase 1: Pre-Application Prep (8 items)</div>
+      <div class="teaser-item"><span class="teaser-check">✓</span> Phase 2: Application Submission (9 items)</div>
+      <div class="teaser-item"><span class="teaser-check">✓</span> Phase 3: Active Follow-Up (7 items)</div>
+      <div class="teaser-item"><span class="teaser-check">✓</span> Phase 4: Approval & Go-Live (6 items)</div>
+      <div class="teaser-item"><span class="teaser-check">✓</span> Phase 5: Ongoing Maintenance (6 items)</div>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="header-logo">MP</div>
+  <span class="header-name">The Marketing Pros</span>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">Interactive Checklist</div>
+  <h1>The Complete Provider<br><span>Credentialing Checklist</span></h1>
+  <p>5 phases. 36 action items. The exact steps our specialists follow to credential providers faster and with fewer rejections.</p>
+</section>
+
+<div class="container" id="mainContent">
+
+  <!-- Progress -->
+  <div class="progress-summary">
+    <div class="progress-circle">
+      <svg viewBox="0 0 64 64" width="64" height="64">
+        <circle class="pcircle-bg" cx="32" cy="32" r="26" />
+        <circle class="pcircle-fill" id="progRing" cx="32" cy="32" r="26"
+          stroke-dasharray="163.4" stroke-dashoffset="163.4" />
+      </svg>
+      <div class="pcircle-text" id="progPct">0%</div>
+    </div>
+    <div class="progress-info">
+      <h3 id="progTitle">Start working through your checklist</h3>
+      <p id="progSub">Check off items as you complete them. Progress saves in your browser.</p>
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨 Print PDF</button>
+  </div>
+
+  <!-- Phase 1 -->
+  <div class="phase phase-1" id="phase1">
+    <div class="phase-header" onclick="togglePhase('phase1')">
+      <div class="phase-icon">📁</div>
+      <div class="phase-info">
+        <div class="phase-title">Phase 1 — Pre-Application Preparation</div>
+        <div class="phase-sub">Get organized before you submit a single form. Most rejections start here.</div>
+      </div>
+      <div class="phase-badge" id="badge-phase1" style="background:#EFF6FF;color:#1D4ED8">0/8</div>
+      <div class="phase-chevron">›</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item" onclick="toggle(this,'p1-1')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Collect all provider documents in one folder</div>
+          <div class="check-note">DEA certificate, medical license, board certs, malpractice certs, CV, NPI confirmation, diploma, internship/residency letters</div>
+        </div>
+        <span class="check-tag" style="background:#EFF6FF;color:#1E40AF">First</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-2')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Verify NPI is active and taxonomy codes are correct</div>
+          <div class="check-note">Check NPPES registry at npiregistry.cms.hhs.gov. Wrong taxonomy = wrong reimbursement rates.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-3')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Create or update CAQH ProView profile</div>
+          <div class="check-note">Most commercial payers pull from CAQH. Incomplete profiles cause automatic delays. Attest within last 90 days.</div>
+        </div>
+        <span class="check-tag" style="background:#FEF3C7;color:#92400E">Critical</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-4')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Confirm malpractice coverage is current and adequate</div>
+          <div class="check-note">Most payers require minimum $1M/$3M. Get a certificate of insurance naming the practice entity.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-5')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Verify DEA certificate is active and matches practice address</div>
+          <div class="check-note">DEA address must match the practice location on each application. Mismatches cause rejection.</div>
+        </div>
+        <span class="check-tag" style="background:#FEF3C7;color:#92400E">Critical</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-6')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Confirm state license is active, unrestricted, and matches application state</div>
+          <div class="check-note">Run a license verification lookup. Even good-standing licenses can have administrative holds.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-7')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Identify target payers and prioritize by patient volume</div>
+          <div class="check-note">Don't apply everywhere at once. Rank payers by expected volume. Start with Medicare and your top 3 commercial payers.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p1-8')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Set up a credentialing tracking spreadsheet or tool</div>
+          <div class="check-note">Track: payer name, date submitted, contact, status, follow-up dates, effective date. Use our free template (Lead Magnet #4).</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase phase-2" id="phase2">
+    <div class="phase-header" onclick="togglePhase('phase2')">
+      <div class="phase-icon">📤</div>
+      <div class="phase-info">
+        <div class="phase-title">Phase 2 — Application Submission</div>
+        <div class="phase-sub">Accurate first submissions are 3x faster to approve. Errors here cost weeks.</div>
+      </div>
+      <div class="phase-badge" id="badge-phase2" style="background:#FFF7ED;color:#C2410C">0/9</div>
+      <div class="phase-chevron">›</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item" onclick="toggle(this,'p2-1')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Submit Medicare enrollment via PECOS (if not already enrolled)</div>
+          <div class="check-note">PECOS is the CMS enrollment system. New providers: allow 60–90 days. Reassignment of benefits must match billing arrangement.</div>
+        </div>
+        <span class="check-tag" style="background:#FEF3C7;color:#92400E">Priority</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-2')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Submit Medicaid enrollment (state-specific portal)</div>
+          <div class="check-note">Each state has its own Medicaid portal. Check state-specific requirements; some require a separate rendering provider enrollment.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-3')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Apply with BCBS (local plan — not national)</div>
+          <div class="check-note">BlueCross plans are regionally managed. Apply to the specific local plan for each state/market you serve.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-4')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Apply with Aetna</div>
+          <div class="check-note">Submit via Aetna's provider portal or NaviNet. Aetna often has a 90–120 day timeline in competitive markets.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-5')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Apply with UnitedHealthcare</div>
+          <div class="check-note">UHC requires UHCprovider.com registration. Allow 90+ days. Follow up every 3 weeks minimum.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-6')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Apply with Cigna and other specialty payers for your market</div>
+          <div class="check-note">Include any payers that represent >5% of your expected patient volume.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-7')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Double-check all addresses are consistent across applications</div>
+          <div class="check-note">Practice address, billing address, NPI address, CAQH address must all match. A single mismatch can cause a hold.</div>
+        </div>
+        <span class="check-tag" style="background:#FEE2E2;color:#991B1B">Don't skip</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-8')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Confirm correct billing NPI vs. rendering NPI on each application</div>
+          <div class="check-note">Group NPI (Type 2) for billing entity; individual NPI (Type 1) for the rendering provider. Mixing these causes claim rejections.</div>
+        </div>
+        <span class="check-tag" style="background:#FEE2E2;color:#991B1B">Don't skip</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p2-9')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Record submission date, confirmation number, and contact for each application</div>
+          <div class="check-note">You will need this when you follow up. No confirmation number = no proof of submission.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase phase-3" id="phase3">
+    <div class="phase-header" onclick="togglePhase('phase3')">
+      <div class="phase-icon">📞</div>
+      <div class="phase-info">
+        <div class="phase-title">Phase 3 — Active Follow-Up</div>
+        <div class="phase-sub">Applications don't move on their own. Systematic follow-up is what cuts timelines.</div>
+      </div>
+      <div class="phase-badge" id="badge-phase3" style="background:#F0FDF4;color:#166534">0/7</div>
+      <div class="phase-chevron">›</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item" onclick="toggle(this,'p3-1')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Follow up with every payer 2–3 weeks after submission</div>
+          <div class="check-note">Call or use portal. Verify application is in queue, no missing documents. Get the name of your rep if possible.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p3-2')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Set calendar reminders to follow up every 3 weeks until approved</div>
+          <div class="check-note">Consistency beats urgency. Payers prioritize applications that stay in front of them.</div>
+        </div>
+        <span class="check-tag" style="background:#F0FDF4;color:#166534">Leverage</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p3-3')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Respond to any additional information requests within 48 hours</div>
+          <div class="check-note">Every day of delay on your end resets your position in the queue. Treat payer AIRs as fire drills.</div>
+        </div>
+        <span class="check-tag" style="background:#FEE2E2;color:#991B1B">Time-sensitive</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p3-4')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Log every follow-up call: date, rep name, status, next step</div>
+          <div class="check-note">This creates a paper trail if you need to escalate. "I spoke to Maria on June 3rd" is more powerful than "we called them."</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p3-5')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Confirm CAQH attestation hasn't expired during the wait</div>
+          <div class="check-note">CAQH attestations expire every 120 days. An expired CAQH during a pending application can restart the clock.</div>
+        </div>
+        <span class="check-tag" style="background:#FEF3C7;color:#92400E">Easy miss</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p3-6')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Check for any license or DEA renewals due during the credentialing window</div>
+          <div class="check-note">A license that expires while your application is pending will cause an automatic hold.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p3-7')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Escalate stalled applications (>90 days without status change)</div>
+          <div class="check-note">Ask for a supervisor. Reference your submission date and confirmation number. Escalations often break logjams.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase phase-4" id="phase4">
+    <div class="phase-header" onclick="togglePhase('phase4')">
+      <div class="phase-icon">✅</div>
+      <div class="phase-info">
+        <div class="phase-title">Phase 4 — Approval & Go-Live</div>
+        <div class="phase-sub">Approval isn't go-live. These steps turn an approval into billable claims.</div>
+      </div>
+      <div class="phase-badge" id="badge-phase4" style="background:#FDF4FF;color:#7E22CE">0/6</div>
+      <div class="phase-chevron">›</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item" onclick="toggle(this,'p4-1')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Obtain written confirmation of effective date from each payer</div>
+          <div class="check-note">The effective date determines when you can start billing. Don't assume — get it in writing.</div>
+        </div>
+        <span class="check-tag" style="background:#FEE2E2;color:#991B1B">Don't skip</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p4-2')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Add provider to your practice management / billing system</div>
+          <div class="check-note">Update rendering provider ID, group contract numbers, and fee schedule for this payer in your PM system.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p4-3')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Verify EDI/ERA enrollment is active for electronic remittance</div>
+          <div class="check-note">Without EDI/ERA setup, you'll get paper EOBs and manual posting. This adds cost and delay to your revenue cycle.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p4-4')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Submit a test claim and verify it processes correctly</div>
+          <div class="check-note">One test claim per payer on day one of go-live. Watch for rejection codes — they surface setup errors before they become volume problems.</div>
+        </div>
+        <span class="check-tag" style="background:#F0FDF4;color:#166534">Pro move</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p4-5')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Confirm fee schedule rates match your contract</div>
+          <div class="check-note">Run 5–10 EOBs through your contract rate vs. paid-rate checker. Underpayments are common in the first 90 days.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p4-6')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Update provider directory listing with payer</div>
+          <div class="check-note">Patients searching in-network find your provider via payer directories. This often lags approval by 30–60 days — follow up proactively.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase phase-5" id="phase5">
+    <div class="phase-header" onclick="togglePhase('phase5')">
+      <div class="phase-icon">🔄</div>
+      <div class="phase-info">
+        <div class="phase-title">Phase 5 — Ongoing Maintenance</div>
+        <div class="phase-sub">Re-credentialing failures are a hidden revenue killer. Automate these or they will get missed.</div>
+      </div>
+      <div class="phase-badge" id="badge-phase5" style="background:#FFF1F2;color:#BE123C">0/6</div>
+      <div class="phase-chevron">›</div>
+    </div>
+    <div class="phase-body">
+
+      <div class="check-item" onclick="toggle(this,'p5-1')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Set re-credentialing reminders for every payer (typically every 2–3 years)</div>
+          <div class="check-note">Set reminders 90 days before each payer's re-credentialing deadline. Pull the dates from your approval letters now.</div>
+        </div>
+        <span class="check-tag" style="background:#FEF3C7;color:#92400E">Automate</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p5-2')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Set CAQH re-attestation reminder every 90 days</div>
+          <div class="check-note">Put it in your calendar now. CAQH expiration during a re-credentialing cycle is a top-5 cause of preventable payment holds.</div>
+        </div>
+        <span class="check-tag" style="background:#FEE2E2;color:#991B1B">Top 5 miss</span>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p5-3')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Track license and DEA expiration dates on a rolling 12-month calendar</div>
+          <div class="check-note">Renew 60 days before expiration. Some state boards have backlogs — don't wait until 30 days out.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p5-4')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Review payer contracts annually for rate changes or term updates</div>
+          <div class="check-note">Payers send contract amendments via letter. Many practices never see them. Add a rate audit to your annual revenue cycle review.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p5-5')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Update payer directories when provider information changes</div>
+          <div class="check-note">Address change, phone, accepting new patients status. Out-of-date directory listings cost you referrals and cause patient friction.</div>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggle(this,'p5-6')">
+        <div class="check-box"></div>
+        <div>
+          <div class="check-label">Audit underpayments quarterly against contracted rates</div>
+          <div class="check-note">Industry studies show 3–5% of paid claims are underpaid. On $2M in collections, that's $60–100k/year sitting uncollected.</div>
+        </div>
+        <span class="check-tag" style="background:#F0FDF4;color:#166534">Revenue</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3>Don't want to manage this yourself?</h3>
+    <p>Our credentialing specialists handle every step — from pre-application prep to ongoing maintenance. Most practices see their first approvals within 45–60 days.</p>
+    <a href="https://medicalcredentialingservices.com/contact" class="btn-cta">Talk to a Specialist — Free →</a>
+  </div>
+
+</div>
+
+<script>
+  const TOTAL = 36;
+  const phaseTotals = { phase1: 8, phase2: 9, phase3: 7, phase4: 6, phase5: 6 };
+  const phaseCounts = { phase1: 0, phase2: 0, phase3: 0, phase4: 0, phase5: 0 };
+  let totalDone = 0;
+
+  // Load saved state
+  const saved = JSON.parse(localStorage.getItem('credChecklist') || '{}');
+
+  function getPhaseForItem(id) {
+    const n = parseInt(id.split('-')[0].replace('p',''));
+    return 'phase' + n;
+  }
+
+  function toggle(el, id) {
+    const phase = getPhaseForItem(id);
+    const wasDone = el.classList.contains('done');
+    el.classList.toggle('done');
+    saved[id] = !wasDone;
+    localStorage.setItem('credChecklist', JSON.stringify(saved));
+    phaseCounts[phase] = el.closest('.phase-body').querySelectorAll('.check-item.done').length;
+    totalDone = Object.values(saved).filter(Boolean).length;
+    updateUI();
+  }
+
+  function updateUI() {
+    // Overall progress
+    const pct = Math.round((totalDone / TOTAL) * 100);
+    const circ = 163.4;
+    document.getElementById('progRing').style.strokeDashoffset = circ - (pct / 100) * circ;
+    document.getElementById('progPct').textContent = pct + '%';
+
+    if (pct === 0) {
+      document.getElementById('progTitle').textContent = 'Start working through your checklist';
+      document.getElementById('progSub').textContent = 'Check off items as you complete them. Progress saves in your browser.';
+    } else if (pct < 50) {
+      document.getElementById('progTitle').textContent = `${totalDone} of ${TOTAL} items complete — keep going`;
+      document.getElementById('progSub').textContent = 'You\'re building a strong foundation. Don\'t stop now.';
+    } else if (pct < 100) {
+      document.getElementById('progTitle').textContent = `${pct}% complete — you're in the home stretch`;
+      document.getElementById('progSub').textContent = 'Most practices that get this far complete the process 40% faster.';
+    } else {
+      document.getElementById('progTitle').textContent = '🎉 100% Complete — Outstanding!';
+      document.getElementById('progSub').textContent = 'Your credentialing process is fully managed. Schedule your quarterly maintenance review.';
+    }
+
+    // Phase badges
+    Object.entries(phaseCounts).forEach(([ph, cnt]) => {
+      const total = phaseTotals[ph];
+      const badge = document.getElementById('badge-' + ph);
+      badge.textContent = `${cnt}/${total}`;
+    });
+  }
+
+  function togglePhase(id) {
+    document.getElementById(id).classList.toggle('collapsed');
+  }
+
+  // Restore saved
+  Object.entries(saved).forEach(([id, done]) => {
+    if (!done) return;
+    const phase = getPhaseForItem(id);
+    // Find the item by data or by order — items are structured with onclick containing the id
+    const items = document.querySelectorAll('.check-item');
+    items.forEach(item => {
+      if (item.getAttribute('onclick')?.includes(`'${id}'`)) {
+        item.classList.add('done');
+        phaseCounts[phase]++;
+        totalDone++;
+      }
+    });
+  });
+  updateUI();
+
+  function unlockChecklist() {
+    const first = document.getElementById('gFirst').value.trim();
+    const email = document.getElementById('gEmail').value.trim();
+    if (!first || !email) { alert('Please enter your name and email.'); return; }
+    // In production: POST to CRM here
+    document.getElementById('gateOverlay').style.display = 'none';
+    document.getElementById('mainContent').classList.add('unlocked');
+  }
+</script>
+</body>
+</html>

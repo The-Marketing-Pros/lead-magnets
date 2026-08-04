@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provider Enrollment Template Pack | The Marketing Pros</title>
+  <meta name="description" content="6 ready-to-use provider enrollment and credentialing templates. Free download — used by 500+ practices nationwide." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B3A6B;
+      --blue:   #0EA5E9;
+      --blue-d: #0284C7;
+      --green:  #10B981;
+      --amber:  #F59E0B;
+      --purple: #8B5CF6;
+      --coral:  #F43F5E;
+      --slate:  #64748B;
+      --bg:     #F1F5F9;
+      --white:  #FFFFFF;
+      --text:   #1E293B;
+      --border: #E2E8F0;
+      --font:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    /* Header */
+    .header {
+      background: var(--navy);
+      padding: 18px 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header-logo {
+      width: 32px; height: 32px;
+      background: var(--blue); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 14px;
+    }
+    .header-name { color: #fff; font-size: 15px; font-weight: 600; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5299 100%);
+      color: #fff;
+      padding: 60px 24px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      display: block;
+      height: 60px;
+      background: var(--bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+      margin-top: -1px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(139,92,246,.3);
+      border: 1px solid rgba(139,92,246,.5);
+      color: #C4B5FD;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 42px);
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -.025em; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #38BDF8; }
+    .hero-sub {
+      font-size: 17px; color: #CBD5E1;
+      max-width: 560px; margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    /* Social proof strip */
+    .proof-strip {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .proof-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #94A3B8;
+    }
+    .proof-icon { font-size: 16px; }
+
+    /* Main layout */
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    /* Two-column layout */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 780px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* Template cards */
+    .templates-label {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--slate); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .templates-label::before {
+      content: '';
+      display: block; width: 4px; height: 16px;
+      background: var(--blue); border-radius: 2px;
+    }
+
+    .template-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .template-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      transform: translateY(-1px);
+    }
+    .template-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .template-info { flex: 1; }
+    .template-name {
+      font-size: 15px; font-weight: 700;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .template-desc {
+      font-size: 13px; color: var(--slate);
+      line-height: 1.5; margin-bottom: 8px;
+    }
+    .template-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .template-tag {
+      font-size: 11px; font-weight: 600;
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .template-format {
+      font-size: 11px; font-weight: 700;
+      color: var(--slate);
+      align-self: flex-start;
+      margin-top: 2px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .template-format-icon { font-size: 14px; }
+
+    /* Sticky form sidebar */
+    .form-sidebar {
+      position: sticky;
+      top: 24px;
+    }
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.1);
+    }
+    .form-card-header {
+      background: var(--navy);
+      padding: 24px 28px;
+      color: #fff;
+      text-align: center;
+    }
+    .form-card-header .title {
+      font-size: 20px; font-weight: 800;
+      letter-spacing: -.01em; margin-bottom: 6px;
+    }
+    .form-card-header .sub {
+      font-size: 13px; color: #94A3B8;
+      line-height: 1.4;
+    }
+    .form-card-body { padding: 24px 28px; }
+
+    .form-card input {
+      width: 100%; height: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px; font-family: var(--font);
+      padding: 0 14px; color: var(--text);
+      transition: border-color .15s;
+      margin-bottom: 10px;
+    }
+    .form-card input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.15);
+    }
+    .form-card input::placeholder { color: #94A3B8; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 460px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .btn-download {
+      display: block; width: 100%;
+      height: 54px;
+      background: var(--green);
+      color: #fff; border: none;
+      border-radius: 10px;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+      margin-top: 4px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-download:hover { background: #059669; transform: translateY(-1px); }
+    .btn-download:active { transform: translateY(0); }
+
+    .form-guarantee {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-top: 16px;
+      background: #F0FDF4;
+      border: 1px solid #A7F3D0;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .guarantee-icon { font-size: 18px; flex-shrink: 0; }
+    .guarantee-text { font-size: 12px; color: #065F46; line-height: 1.5; }
+    .guarantee-text strong { display: block; }
+
+    .form-disclaimer { font-size: 11px; color: #94A3B8; text-align: center; margin-top: 12px; }
+
+    /* Download success state */
+    .download-success {
+      display: none;
+      text-align: center;
+      padding: 32px 28px;
+    }
+    .download-success .check-circle {
+      width: 64px; height: 64px;
+      background: #D1FAE5;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 30px;
+    }
+    .download-success h3 {
+      font-size: 20px; font-weight: 800;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .download-success p {
+      font-size: 14px; color: var(--slate);
+      line-height: 1.6; margin-bottom: 20px;
+    }
+    .btn-consult {
+      display: block; width: 100%; padding: 14px;
+      background: var(--navy); color: #fff;
+      text-decoration: none; border-radius: 10px;
+      font-size: 15px; font-weight: 700;
+      text-align: center; transition: background .15s;
+    }
+    .btn-consult:hover { background: #152e57; }
+
+    /* Template preview section */
+    .preview-section {
+      margin-top: 48px;
+    }
+    .preview-section-title {
+      font-size: 24px; font-weight: 800;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .preview-section-sub {
+      font-size: 15px; color: var(--slate);
+      margin-bottom: 32px; line-height: 1.5;
+    }
+
+    /* Template 1 Preview: Credentialing Tracker */
+    .preview-table {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      margin-bottom: 24px;
+    }
+    .preview-table-header {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .preview-table-badge {
+      font-size: 11px; font-weight: 600;
+      background: rgba(255,255,255,.15);
+      padding: 2px 8px; border-radius: 4px;
+      margin-left: auto;
+    }
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%; border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      background: #F8FAFC;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: var(--slate);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #F8FAFC;
+      color: var(--text);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #FAFBFC; }
+    .status-pill {
+      display: inline-block;
+      font-size: 11px; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px;
+    }
+    .status-pending  { background: #FEF3C7; color: #92400E; }
+    .status-approved { background: #D1FAE5; color: #065F46; }
+    .status-action   { background: #FEE2E2; color: #991B1B; }
+    .status-submitted{ background: #EFF6FF; color: #1E40AF; }
+
+    /* Appeal letter preview */
+    .letter-preview {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .letter-header {
+      background: var(--navy);
+      color: #fff; padding: 14px 20px;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .letter-body {
+      padding: 24px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .letter-field {
+      display: inline-block;
+      background: #FEF3C7;
+      border-bottom: 2px dashed var(--amber);
+      color: #92400E;
+      padding: 0 4px;
+      font-style: italic;
+      font-size: 12px;
+    }
+
+    /* What's included section */
+    .included-section {
+      margin-top: 48px;
+    }
+    .included-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .included-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    }
+    .included-item .icon { font-size: 28px; margin-bottom: 10px; }
+    .included-item .label { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .included-item .desc { font-size: 12px; color: var(--slate); line-height: 1.4; }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      color: #fff;
+      margin-top: 48px;
+    }
+    .final-cta h2 {
+      font-size: 26px; font-weight: 800;
+      letter-spacing: -.02em; margin-bottom: 12px;
+    }
+    .final-cta p {
+      font-size: 16px; color: #94A3B8;
+      max-width: 480px; margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .btn-final {
+      display: inline-block;
+      background: var(--blue); color: #fff;
+      text-decoration: none;
+      padding: 16px 36px; border-radius: 12px;
+      font-size: 16px; font-weight: 700;
+      transition: background .15s;
+    }
+    .btn-final:hover { background: var(--blue-d); }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-logo">MP</div>
+  <span class="header-name">The Marketing Pros</span>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">Free Template Pack</div>
+  <h1>The Provider Enrollment<br><span>Template Pack</span></h1>
+  <p class="hero-sub">6 ready-to-use templates our credentialing specialists built after working with 500+ practices. Download free, use immediately.</p>
+
+  <div class="proof-strip">
+    <div class="proof-item"><span class="proof-icon">📦</span> 6 templates included</div>
+    <div class="proof-item"><span class="proof-icon">⚡</span> Instant download</div>
+    <div class="proof-item"><span class="proof-icon">🏥</span> 500+ practices trust these</div>
+    <div class="proof-item"><span class="proof-icon">🔒</span> Free, no credit card</div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="two-col">
+
+    <!-- Left: Template list -->
+    <div>
+      <div class="templates-label">What's in the pack</div>
+
+      <div class="template-card">
+        <div class="template-icon" style="background:#EFF6FF">📊</div>
+        <div class="template-info">
+          <div class="template-name">Provider Credentialing Tracker</div>
+          <div class="template-desc">Track every open application with payer, submission date, status, follow-up schedule, effective date, and notes — all in one view. The single source of truth for your credentialing pipeline.</div>
+          <div class="template-tags">
+            <span class="template-tag" style="background:#EFF6FF;color:#1E40AF">Spreadsheet</span>
+            <span class="template-tag" style="background:#F0FDF4;color:#166534">Most popular</span>
+          </div>
+        </div>
+        <div class="template-format"><span class="template-format-icon">📋</span> Excel / Sheets</div>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon" style="background:#FFF7ED">🎯</div>
+        <div class="template-info">
+          <div class="template-name">Payer Priority Matrix</div>
+          <div class="template-desc">Score and rank your payer targets by expected volume, reimbursement rate, and timeline complexity. Stop applying everywhere — apply strategically. Included: a pre-filled example for a primary care practice.</div>
+          <div class="template-tags">
+            <span class="template-tag" style="background:#FFF7ED;color:#C2410C">Strategy</span>
+            <span class="template-tag" style="background:#EFF6FF;color:#1E40AF">Spreadsheet</span>
+          </div>
+        </div>
+        <div class="template-format"><span class="template-format-icon">📋</span> Excel / Sheets</div>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon" style="background:#F0FDF4">📋</div>
+        <div class="template-info">
+          <div class="template-name">CAQH Quick-Start Checklist</div>
+          <div class="template-desc">Everything you need to set up or update a CAQH ProView profile without missing a field. Includes the 12 most commonly missed items that cause applications to stall at payer review.</div>
+          <div class="template-tags">
+            <span class="template-tag" style="background:#F0FDF4;color:#166534">Checklist</span>
+            <span class="template-tag" style="background:#FEE2E2;color:#991B1B">High impact</span>
+          </div>
+        </div>
+        <div class="template-format"><span class="template-format-icon">📄</span> PDF / Doc</div>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon" style="background:#FDF4FF">👤</div>
+        <div class="template-info">
+          <div class="template-name">Provider Data Collection Sheet</div>
+          <div class="template-desc">A standardized form to collect every piece of data you need from a new provider before you start any application. Eliminates the "wait, what's your DEA number again?" back-and-forth that delays every intake.</div>
+          <div class="template-tags">
+            <span class="template-tag" style="background:#FDF4FF;color:#7E22CE">Intake</span>
+            <span class="template-tag" style="background:#EFF6FF;color:#1E40AF">Fillable PDF</span>
+          </div>
+        </div>
+        <div class="template-format"><span class="template-format-icon">📄</span> Fillable PDF</div>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon" style="background:#FFF1F2">📅</div>
+        <div class="template-info">
+          <div class="template-name">Credentialing Timeline Template</div>
+          <div class="template-desc">A Gantt-style timeline template that maps your entire credentialing process from pre-application prep to first approved claim. Plug in your dates, share with your team, and never lose track of where you are.</div>
+          <div class="template-tags">
+            <span class="template-tag" style="background:#FFF1F2;color:#BE123C">Timeline</span>
+            <span class="template-tag" style="background:#EFF6FF;color:#1E40AF">Spreadsheet</span>
+          </div>
+        </div>
+        <div class="template-format"><span class="template-format-icon">📋</span> Excel / Sheets</div>
+      </div>
+
+      <div class="template-card">
+        <div class="template-icon" style="background:#F0FDF4">✉️</div>
+        <div class="template-info">
+          <div class="template-name">Claim Denial Appeal Letter Template</div>
+          <div class="template-desc">A professional, attorney-reviewed appeal letter template for common denial reasons: not credentialed, out-of-network, timely filing, and medical necessity. Customizable with your practice information and case details.</div>
+          <div class="template-tags">
+            <span class="template-tag" style="background:#FEF3C7;color:#92400E">Legal-reviewed</span>
+            <span class="template-tag" style="background:#F0FDF4;color:#166534">Revenue recovery</span>
+          </div>
+        </div>
+        <div class="template-format"><span class="template-format-icon">📄</span> Word / Doc</div>
+      </div>
+
+    </div>
+
+    <!-- Right: Sticky form -->
+    <div class="form-sidebar">
+      <div class="form-card">
+        <div class="form-card-header">
+          <div class="title">Download All 6 Templates</div>
+          <div class="sub">Free. Instant. No credit card required.</div>
+        </div>
+
+        <!-- Form state -->
+        <div id="formState" class="form-card-body">
+          <div class="form-grid" style="margin-bottom:10px">
+            <input type="text" id="gFirst" placeholder="First name" />
+            <input type="text" id="gLast" placeholder="Last name" />
+          </div>
+          <input type="text" id="gPractice" placeholder="Practice or organization" />
+          <input type="text" id="gSpecialty" placeholder="Specialty (e.g., Primary Care, Therapy)" />
+          <input type="email" id="gEmail" placeholder="Work email address" />
+          <button class="btn-download" onclick="submitDownload()">
+            <span>⬇</span> Download Free Pack
+          </button>
+
+          <div class="form-guarantee">
+            <div class="guarantee-icon">🔒</div>
+            <div class="guarantee-text">
+              <strong>No spam guarantee.</strong>
+              You'll get the template pack immediately plus occasional credentialing tips. Unsubscribe anytime in one click.
+            </div>
+          </div>
+          <div class="form-disclaimer">Trusted by 500+ medical practices. No obligation. No credit card.</div>
+        </div>
+
+        <!-- Thank you state -->
+        <div class="download-success" id="successState">
+          <div class="check-circle">✓</div>
+          <h3>Templates ready for download!</h3>
+          <p>Check your email — all 6 templates are on their way. They also live in your Downloads folder if you're on a desktop browser.</p>
+          <a href="#" class="btn-consult" onclick="return false;">Book a Free Strategy Call →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Preview section -->
+  <div class="preview-section">
+    <div class="preview-section-title">Preview the templates</div>
+    <div class="preview-section-sub">Here's a look at what you're getting — built to be used, not just downloaded.</div>
+
+    <!-- Tracker preview -->
+    <div class="preview-table">
+      <div class="preview-table-header">
+        📊 Template 1 — Provider Credentialing Tracker
+        <span class="preview-table-badge">Live preview</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Payer</th>
+              <th>Submitted</th>
+              <th>Status</th>
+              <th>Next Follow-Up</th>
+              <th>Effective Date</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dr. Sarah Chen, MD</td>
+              <td>Medicare (PECOS)</td>
+              <td>Jun 3</td>
+              <td><span class="status-pill status-pending">Pending</span></td>
+              <td>Jun 24</td>
+              <td>—</td>
+              <td>Confirmation #45921</td>
+            </tr>
+            <tr>
+              <td>Dr. Sarah Chen, MD</td>
+              <td>BCBS Tennessee</td>
+              <td>Jun 5</td>
+              <td><span class="status-pill status-action">Needs Info</span></td>
+              <td>Today</td>
+              <td>—</td>
+              <td>AIR: needs updated CV</td>
+            </tr>
+            <tr>
+              <td>Dr. Sarah Chen, MD</td>
+              <td>Aetna</td>
+              <td>May 28</td>
+              <td><span class="status-pill status-approved">Approved</span></td>
+              <td>—</td>
+              <td>Jul 1</td>
+              <td>Rate: 105% Medicare</td>
+            </tr>
+            <tr>
+              <td>Dr. Marcus Webb, DO</td>
+              <td>UnitedHealthcare</td>
+              <td>Jun 10</td>
+              <td><span class="status-pill status-submitted">Submitted</span></td>
+              <td>Jul 1</td>
+              <td>—</td>
+              <td>Portal ref #: UHC-88241</td>
+            </tr>
+            <tr>
+              <td>Dr. Marcus Webb, DO</td>
+              <td>Cigna</td>
+              <td>Jun 10</td>
+              <td><span class="status-pill status-submitted">Submitted</span></td>
+              <td>Jul 1</td>
+              <td>—</td>
+              <td>Fax confirm received</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Appeal letter preview -->
+    <div class="letter-preview">
+      <div class="letter-header">
+        ✉️ Template 6 — Claim Denial Appeal Letter
+        <span style="font-size:11px;background:rgba(255,255,255,.15);padding:2px 8px;border-radius:4px;margin-left:auto">Word / Doc</span>
+      </div>
+      <div class="letter-body">
+        <p style="margin-bottom:12px"><span class="letter-field">[Date]</span></p>
+        <p style="margin-bottom:4px">Appeals Department</p>
+        <p style="margin-bottom:4px"><span class="letter-field">[Payer Name]</span></p>
+        <p style="margin-bottom:20px"><span class="letter-field">[Payer Address]</span></p>
+        <p style="margin-bottom:4px"><strong>Re: Formal Appeal — Claim Denial</strong></p>
+        <p style="margin-bottom:4px">Patient: <span class="letter-field">[Patient Name]</span> | DOB: <span class="letter-field">[DOB]</span></p>
+        <p style="margin-bottom:4px">Claim #: <span class="letter-field">[Claim Number]</span> | DOS: <span class="letter-field">[Date of Service]</span></p>
+        <p style="margin-bottom:20px">Denial Reason: <span class="letter-field">[Denial Code / Reason]</span></p>
+        <p style="margin-bottom:12px">Dear Appeals Department,</p>
+        <p style="margin-bottom:12px">We are writing to formally appeal the denial of the above-referenced claim. <span class="letter-field">[Rendering Provider Name, credentials]</span> provided medically necessary services to <span class="letter-field">[Patient Name]</span> on <span class="letter-field">[Date of Service]</span>. The denial reason cited — <span class="letter-field">[denial reason]</span> — is incorrect for the following reasons:</p>
+        <p style="color:#94A3B8;font-style:italic;font-size:12px">[ Template continues with 3 structured argument sections, supporting documentation list, resolution request, and signature block — all customizable for your specific denial type. ]</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- What's included -->
+  <div class="included-section">
+    <div class="preview-section-title">Everything in the pack</div>
+    <div class="included-grid">
+      <div class="included-item">
+        <div class="icon">📊</div>
+        <div class="label">Credentialing Tracker</div>
+        <div class="desc">Full pipeline visibility in one spreadsheet</div>
+      </div>
+      <div class="included-item">
+        <div class="icon">🎯</div>
+        <div class="label">Payer Priority Matrix</div>
+        <div class="desc">Apply strategically, not randomly</div>
+      </div>
+      <div class="included-item">
+        <div class="icon">📋</div>
+        <div class="label">CAQH Quick-Start</div>
+        <div class="desc">Set up right the first time</div>
+      </div>
+      <div class="included-item">
+        <div class="icon">👤</div>
+        <div class="label">Provider Data Sheet</div>
+        <div class="desc">Collect everything in one intake form</div>
+      </div>
+      <div class="included-item">
+        <div class="icon">📅</div>
+        <div class="label">Timeline Template</div>
+        <div class="desc">Know where every application stands</div>
+      </div>
+      <div class="included-item">
+        <div class="icon">✉️</div>
+        <div class="label">Appeal Letter</div>
+        <div class="desc">Win back denied claims professionally</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <div class="final-cta">
+    <h2>Templates are the start.<br>Specialists are the solution.</h2>
+    <p>Our credentialing team uses these templates — and a lot more — to credential providers 40% faster than national averages. Free consultation, no commitment.</p>
+    <a href="https://providerenrollmentservices.com/contact" class="btn-final">Book Your Free Strategy Call →</a>
+  </div>
+
+</div>
+
+<script>
+  function submitDownload() {
+    const first = document.getElementById('gFirst').value.trim();
+    const email = document.getElementById('gEmail').value.trim();
+    if (!first || !email) { alert('Please enter your first name and email.'); return; }
+    // In production: POST to CRM + trigger email with templates attached
+    document.getElementById('formState').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+    // Scroll to top of card
+    document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice Revenue Readiness Audit | The Marketing Pros</title>
+  <meta name="description" content="10-question audit reveals exactly where your practice is leaking revenue. Free scorecard with personalized recommendations." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B3A6B;
+      --blue:   #0EA5E9;
+      --blue-d: #0284C7;
+      --green:  #10B981;
+      --green-d:#059669;
+      --red:    #EF4444;
+      --amber:  #F59E0B;
+      --slate:  #64748B;
+      --bg:     #F1F5F9;
+      --white:  #FFFFFF;
+      --text:   #1E293B;
+      --border: #E2E8F0;
+      --font:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .header {
+      background: var(--navy);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-logo {
+      width: 32px; height: 32px;
+      background: var(--blue);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 14px;
+    }
+    .header-name { color: #fff; font-size: 15px; font-weight: 600; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #2d5299 100%);
+      color: #fff;
+      text-align: center;
+      padding: 56px 24px 44px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(16,185,129,.25);
+      border: 1px solid rgba(16,185,129,.5);
+      color: #6EE7B7;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(24px, 4.5vw, 38px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #38BDF8; }
+    .hero p {
+      font-size: 16px;
+      color: #CBD5E1;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      max-width: 680px;
+      margin: 32px auto 0;
+      padding: 0 20px;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #94A3B8;
+      margin-bottom: 10px;
+    }
+    .progress-bar-bg {
+      height: 6px;
+      background: rgba(255,255,255,.2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 3px;
+      transition: width .4s ease;
+      width: 0%;
+    }
+
+    /* Quiz container */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Question card */
+    .q-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+      display: none;
+    }
+    .q-card.active { display: block; }
+
+    .q-number {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .q-text {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .q-sub {
+      font-size: 14px;
+      color: var(--slate);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* Options */
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .option:hover { border-color: var(--blue); background: #F0F9FF; }
+    .option.selected {
+      border-color: var(--navy);
+      background: #EFF6FF;
+    }
+    .option-radio {
+      width: 20px; height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all .15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .option.selected .option-radio {
+      border-color: var(--navy);
+      background: var(--navy);
+    }
+    .option.selected .option-radio::after {
+      content: '';
+      width: 6px; height: 6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .option-text {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .option-score { display: none; }
+
+    .q-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .btn-back {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--slate);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-back:hover { border-color: var(--slate); color: var(--text); }
+    .btn-next {
+      background: var(--navy);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s;
+      opacity: .4;
+      pointer-events: none;
+    }
+    .btn-next.ready { opacity: 1; pointer-events: all; }
+    .btn-next:hover { background: #152e57; }
+
+    /* Gate screen */
+    .gate-screen {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+      display: none;
+      text-align: center;
+    }
+    .gate-screen.active { display: block; }
+    .gate-screen .score-preview {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 4px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      filter: blur(5px);
+      user-select: none;
+    }
+    .gate-screen h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .gate-screen p {
+      font-size: 15px;
+      color: var(--slate);
+      max-width: 440px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .gate-form { text-align: left; }
+    .gate-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 480px) { .gate-form .form-row { grid-template-columns: 1fr; } }
+    .gate-form input {
+      width: 100%;
+      height: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: var(--font);
+      padding: 0 14px;
+      color: var(--text);
+      transition: border-color .15s;
+      margin-bottom: 10px;
+    }
+    .gate-form input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(14,165,233,.15);
+    }
+    .gate-form input::placeholder { color: #94A3B8; }
+    .btn-reveal {
+      display: block;
+      width: 100%;
+      height: 52px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s;
+      margin-top: 4px;
+    }
+    .btn-reveal:hover { background: var(--green-d); }
+    .gate-disclaimer {
+      font-size: 11px;
+      color: #94A3B8;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* Results screen */
+    .results-screen {
+      display: none;
+    }
+    .results-screen.active { display: block; }
+
+    .score-ring-wrap {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .score-ring {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 16px;
+    }
+    .score-ring svg { transform: rotate(-90deg); }
+    .score-ring-bg { fill: none; stroke: var(--border); stroke-width: 10; }
+    .score-ring-fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+    .score-ring-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-num { font-size: 36px; font-weight: 800; color: var(--navy); }
+    .score-of  { font-size: 13px; color: var(--slate); }
+
+    .score-label {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    /* Recommendations */
+    .rec-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+      margin-bottom: 16px;
+    }
+    .rec-header {
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rec-body {
+      padding: 0 20px 20px;
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .rec-priority {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: auto;
+    }
+
+    .cta-section {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      color: #fff;
+      margin-top: 32px;
+    }
+    .cta-section h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .cta-section p {
+      font-size: 14px;
+      color: #94A3B8;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: background .15s;
+    }
+    .btn-cta:hover { background: var(--blue-d); }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-logo">MP</div>
+  <span class="header-name">The Marketing Pros</span>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">Free 2-Minute Audit</div>
+  <h1>Is Your Practice Leaving<br><span>Revenue on the Table?</span></h1>
+  <p>Answer 10 questions. Get your Practice Revenue Readiness Score plus a prioritized action plan — free.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span id="progressLabel">Question 1 of 10</span>
+      <span id="progressPct">0% complete</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Q1 -->
+  <div class="q-card active" id="q1">
+    <div class="q-number">Question 1 of 10</div>
+    <div class="q-text">How would you describe your current credentialing status?</div>
+    <div class="q-sub">Select the option that best reflects where your practice stands today.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,1,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Fully credentialed with all target payers — we're optimized</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,1,7)">
+        <div class="option-radio"></div>
+        <div class="option-text">Credentialed with major payers; a few still pending</div>
+        <span class="option-score">7</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,1,3)">
+        <div class="option-radio"></div>
+        <div class="option-text">In the middle of credentialing — several payers not yet approved</div>
+        <span class="option-score">3</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,1,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">Just starting out or severely behind — credentialing is a major gap</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <span></span>
+      <button class="btn-next" id="next1" onclick="goNext(1)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card" id="q2">
+    <div class="q-number">Question 2 of 10</div>
+    <div class="q-text">How current is your CAQH ProView profile?</div>
+    <div class="q-sub">CAQH is the backbone of most commercial payer credentialing.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,2,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Updated within the last 90 days — all attestations current</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,2,6)">
+        <div class="option-radio"></div>
+        <div class="option-text">Updated 3–6 months ago</div>
+        <span class="option-score">6</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,2,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">Over 6 months since last update — may be expired</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,2,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">We don't have a CAQH profile / not sure what this is</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(2)">← Back</button>
+      <button class="btn-next" id="next2" onclick="goNext(2)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card" id="q3">
+    <div class="q-number">Question 3 of 10</div>
+    <div class="q-text">How well does your payer mix align with your patient population?</div>
+    <div class="q-sub">Misaligned payer mix is one of the most common silent revenue killers.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,3,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Actively managed — we review payer mix quarterly and adjust strategy</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,3,6)">
+        <div class="option-radio"></div>
+        <div class="option-text">Mostly aligned — reviewed annually but not optimized</div>
+        <span class="option-score">6</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,3,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">We accept most payers but haven't analyzed the mix</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,3,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">We just take whoever comes — no payer strategy</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(3)">← Back</button>
+      <button class="btn-next" id="next3" onclick="goNext(3)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card" id="q4">
+    <div class="q-number">Question 4 of 10</div>
+    <div class="q-text">How are you handling claim denials and rejections?</div>
+    <div class="q-sub">Industry average denial rate is 5–10%. Best-in-class is under 2%.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,4,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Dedicated denial management team — we track root causes and fix upstream issues</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,4,6)">
+        <div class="option-radio"></div>
+        <div class="option-text">We work denials but reactively — no root cause analysis</div>
+        <span class="option-score">6</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,4,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">Denials pile up — we get to them when we can</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,4,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">We don't have a denial management process</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(4)">← Back</button>
+      <button class="btn-next" id="next4" onclick="goNext(4)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card" id="q5">
+    <div class="q-number">Question 5 of 10</div>
+    <div class="q-text">Do you have a credentialing timeline tracker for new providers?</div>
+    <div class="q-sub">Without tracking, delays go undetected until they become expensive.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,5,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Yes — we have a live dashboard with milestone alerts for every application</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,5,6)">
+        <div class="option-radio"></div>
+        <div class="option-text">Spreadsheet-based tracking — works but gaps exist</div>
+        <span class="option-score">6</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,5,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">We track informally via email threads and memory</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,5,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">No tracking — we follow up when we remember to</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(5)">← Back</button>
+      <button class="btn-next" id="next5" onclick="goNext(5)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card" id="q6">
+    <div class="q-number">Question 6 of 10</div>
+    <div class="q-text">How quickly does your billing team submit claims after service?</div>
+    <div class="q-sub">Days-to-submit directly impacts cash flow and write-off risk.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,6,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Same-day or next-day — claims go out before close of business</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,6,7)">
+        <div class="option-radio"></div>
+        <div class="option-text">2–3 days — solid but room to tighten</div>
+        <span class="option-score">7</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,6,3)">
+        <div class="option-radio"></div>
+        <div class="option-text">4–7 days — falling behind best practice</div>
+        <span class="option-score">3</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,6,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">More than a week — significant cash flow impact</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(6)">← Back</button>
+      <button class="btn-next" id="next6" onclick="goNext(6)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card" id="q7">
+    <div class="q-number">Question 7 of 10</div>
+    <div class="q-text">Have you negotiated your payer fee schedules in the last 2 years?</div>
+    <div class="q-sub">Most practices leave 5–15% on the table by not renegotiating.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,7,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Yes — we actively negotiate and have secured above-market rates</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,7,5)">
+        <div class="option-radio"></div>
+        <div class="option-text">We've requested reviews but results were mixed</div>
+        <span class="option-score">5</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,7,1)">
+        <div class="option-radio"></div>
+        <div class="option-text">We accept whatever rates the payer offers</div>
+        <span class="option-score">1</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,7,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">I didn't know this was possible</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(7)">← Back</button>
+      <button class="btn-next" id="next7" onclick="goNext(7)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card" id="q8">
+    <div class="q-number">Question 8 of 10</div>
+    <div class="q-text">How do you handle out-of-network situations?</div>
+    <div class="q-sub">OON strategy can dramatically change your effective reimbursement rate.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,8,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Deliberate OON strategy — we've calculated which payers are worth joining vs. billing OON</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,8,5)">
+        <div class="option-radio"></div>
+        <div class="option-text">We try to be in-network everywhere but accept OON when needed</div>
+        <span class="option-score">5</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,8,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">Mostly in-network — we avoid OON to keep things simple</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,8,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">We don't have a defined OON approach</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(8)">← Back</button>
+      <button class="btn-next" id="next8" onclick="goNext(8)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-card" id="q9">
+    <div class="q-number">Question 9 of 10</div>
+    <div class="q-text">What's your process for re-credentialing existing providers?</div>
+    <div class="q-sub">Missed re-credentialing deadlines cause payment holds. It's more common than most practices admit.</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,9,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Automated reminders 90+ days out — we never miss a deadline</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,9,6)">
+        <div class="option-radio"></div>
+        <div class="option-text">Calendar reminders — someone manually tracks expiration dates</div>
+        <span class="option-score">6</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,9,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">We mostly catch them — but we've missed a couple</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,9,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">Reactive — we re-credential when payers notify us (or when payments stop)</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(9)">← Back</button>
+      <button class="btn-next" id="next9" onclick="goNext(9)">Next →</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-card" id="q10">
+    <div class="q-number">Question 10 of 10</div>
+    <div class="q-text">Do you have a dedicated resource managing credentialing and enrollment?</div>
+    <div class="q-sub">Who owns this in your organization?</div>
+    <div class="options">
+      <div class="option" onclick="selectOpt(this,10,10)">
+        <div class="option-radio"></div>
+        <div class="option-text">Dedicated credentialing specialist or team — it's their only job</div>
+        <span class="option-score">10</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,10,6)">
+        <div class="option-radio"></div>
+        <div class="option-text">Shared role — billing or admin also handles credentialing</div>
+        <span class="option-score">6</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,10,2)">
+        <div class="option-radio"></div>
+        <div class="option-text">The practice manager or physician does it — squeezed in around other duties</div>
+        <span class="option-score">2</span>
+      </div>
+      <div class="option" onclick="selectOpt(this,10,0)">
+        <div class="option-radio"></div>
+        <div class="option-text">No dedicated resource — it's whoever has bandwidth at the moment</div>
+        <span class="option-score">0</span>
+      </div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-back" onclick="goBack(10)">← Back</button>
+      <button class="btn-next" id="next10" onclick="showGate()">See My Score →</button>
+    </div>
+  </div>
+
+  <!-- Gate -->
+  <div class="gate-screen" id="gateScreen">
+    <div class="score-preview" id="scorePreview">??</div>
+    <h2>Your score is ready.</h2>
+    <p>Enter your details below to unlock your Practice Revenue Readiness Score and personalized action plan.</p>
+    <div class="gate-form">
+      <div class="form-row">
+        <input type="text" id="gFirst" placeholder="First name" />
+        <input type="text" id="gLast" placeholder="Last name" />
+      </div>
+      <input type="text" id="gPractice" placeholder="Practice or organization name" />
+      <input type="email" id="gEmail" placeholder="Work email address" />
+      <button class="btn-reveal" onclick="revealResults()">Reveal My Score →</button>
+      <div class="gate-disclaimer">We respect your inbox. No spam, ever.</div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="results-screen" id="resultsScreen">
+    <div class="score-ring-wrap">
+      <div class="score-ring">
+        <svg viewBox="0 0 120 120" width="140" height="140">
+          <circle class="score-ring-bg" cx="60" cy="60" r="52" />
+          <circle class="score-ring-fill" id="ringFill" cx="60" cy="60" r="52"
+            stroke-dasharray="326.7" stroke-dashoffset="326.7" />
+        </svg>
+        <div class="score-ring-text">
+          <div class="score-num" id="scoreDisplay">0</div>
+          <div class="score-of">out of 100</div>
+        </div>
+      </div>
+      <div class="score-label" id="scoreLabel"></div>
+    </div>
+
+    <div id="recommendationsWrap"></div>
+
+    <div class="cta-section">
+      <h3>Ready to close the gaps?</h3>
+      <p>Our credentialing and enrollment specialists work with practices across every specialty. Free 20-minute consultation, no obligation.</p>
+      <a href="https://providerenrollmentservices.com/contact" class="btn-cta">Book Your Free Consultation →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const scores = {};
+  const totalQ = 10;
+
+  function selectOpt(el, qNum, score) {
+    // Clear siblings
+    el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    scores[qNum] = score;
+    document.getElementById('next' + qNum).classList.add('ready');
+  }
+
+  function updateProgress(qNum) {
+    const pct = Math.round(((qNum - 1) / totalQ) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Question ' + qNum + ' of ' + totalQ;
+    document.getElementById('progressPct').textContent = pct + '% complete';
+  }
+
+  function goNext(qNum) {
+    if (scores[qNum] === undefined) return;
+    document.getElementById('q' + qNum).classList.remove('active');
+    const next = qNum + 1;
+    if (next <= totalQ) {
+      document.getElementById('q' + next).classList.add('active');
+      updateProgress(next);
+    }
+  }
+
+  function goBack(qNum) {
+    document.getElementById('q' + qNum).classList.remove('active');
+    document.getElementById('q' + (qNum - 1)).classList.add('active');
+    updateProgress(qNum - 1);
+  }
+
+  function showGate() {
+    if (scores[10] === undefined) return;
+    document.getElementById('q10').classList.remove('active');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressLabel').textContent = 'Audit complete!';
+    document.getElementById('progressPct').textContent = '100% complete';
+    document.getElementById('gateScreen').classList.add('active');
+  }
+
+  function calcScore() {
+    let total = 0;
+    for (let i = 1; i <= totalQ; i++) total += (scores[i] || 0);
+    return total;
+  }
+
+  function revealResults() {
+    const first = document.getElementById('gFirst').value.trim();
+    const email = document.getElementById('gEmail').value.trim();
+    if (!first || !email) { alert('Please enter your name and email.'); return; }
+
+    const score = calcScore();
+    // In production: POST to CRM here
+
+    document.getElementById('gateScreen').classList.remove('active');
+    document.getElementById('resultsScreen').classList.add('active');
+
+    // Animate ring
+    const circumference = 326.7;
+    const fill = document.getElementById('ringFill');
+    let color, labelText, labelBg, labelColor;
+
+    if (score >= 80) {
+      color = '#10B981'; labelText = '🟢 High Performer'; labelBg = '#D1FAE5'; labelColor = '#065F46';
+    } else if (score >= 55) {
+      color = '#F59E0B'; labelText = '🟡 Solid Foundation'; labelBg = '#FEF3C7'; labelColor = '#92400E';
+    } else if (score >= 30) {
+      color = '#EF4444'; labelText = '🔴 Revenue at Risk'; labelBg = '#FEE2E2'; labelColor = '#991B1B';
+    } else {
+      color = '#DC2626'; labelText = '🚨 Critical — Act Now'; labelBg = '#FEE2E2'; labelColor = '#7F1D1D';
+    }
+
+    fill.style.stroke = color;
+    fill.style.strokeDashoffset = circumference - (score / 100) * circumference;
+
+    // Count up animation
+    let cur = 0;
+    const step = Math.ceil(score / 40);
+    const interval = setInterval(() => {
+      cur = Math.min(cur + step, score);
+      document.getElementById('scoreDisplay').textContent = cur;
+      if (cur >= score) clearInterval(interval);
+    }, 30);
+
+    const lbl = document.getElementById('scoreLabel');
+    lbl.textContent = labelText;
+    lbl.style.background = labelBg;
+    lbl.style.color = labelColor;
+
+    // Build recommendations
+    buildRecs(score, scores);
+  }
+
+  function buildRecs(score, answers) {
+    const wrap = document.getElementById('recommendationsWrap');
+    const recs = [];
+
+    // Analyze weak areas
+    if ((answers[1] || 0) < 7) recs.push({
+      icon: '📋', title: 'Fix Your Credentialing Gaps',
+      body: 'Your credentialing status is incomplete. Every week of delay is direct revenue loss. Prioritize getting your top-revenue payers credentialed first.',
+      priority: 'Critical', pBg: '#FEE2E2', pColor: '#991B1B'
+    });
+    if ((answers[2] || 0) < 7) recs.push({
+      icon: '🔄', title: 'Update Your CAQH Profile',
+      body: 'An outdated CAQH profile blocks or delays applications with every commercial payer. Update it now — it takes 30 minutes and unblocks everything downstream.',
+      priority: 'High', pBg: '#FEF3C7', pColor: '#92400E'
+    });
+    if ((answers[4] || 0) < 6) recs.push({
+      icon: '📊', title: 'Implement Credentialing Timeline Tracking',
+      body: 'Without a tracker, you\'re flying blind. Use our free Credentialing Timeline Template to build visibility into every open application.',
+      priority: 'High', pBg: '#FEF3C7', pColor: '#92400E'
+    });
+    if ((answers[3] || 0) < 6) recs.push({
+      icon: '💡', title: 'Audit Your Payer Mix',
+      body: 'A misaligned payer mix is a slow revenue leak that shows up as "just the way it is." A one-time payer mix analysis can identify 6–15% additional collectible revenue.',
+      priority: 'Medium', pBg: '#EFF6FF', pColor: '#1E40AF'
+    });
+    if ((answers[7] || 0) < 6) recs.push({
+      icon: '💰', title: 'Negotiate Your Fee Schedules',
+      body: 'Most practices have never asked. Payers expect negotiation — and many will grant 5–20% increases, especially if you bring volume data. We can show you how.',
+      priority: 'Medium', pBg: '#EFF6FF', pColor: '#1E40AF'
+    });
+    if ((answers[4] || 0) < 4) recs.push({
+      icon: '⚡', title: 'Reduce Your Denial Rate',
+      body: 'Reactive denial management is expensive. The top 3 denial root causes in your specialty are almost always the same — and preventable. Ask us for the breakdown.',
+      priority: 'High', pBg: '#FEF3C7', pColor: '#92400E'
+    });
+
+    if (recs.length === 0) recs.push({
+      icon: '🏆', title: 'You\'re Operating at a High Level',
+      body: 'Your score indicates strong revenue readiness. Focus areas: stress-test your denial management process and consider negotiating your top-3 payer contracts this cycle.',
+      priority: 'Optimize', pBg: '#D1FAE5', pColor: '#065F46'
+    });
+
+    wrap.innerHTML = recs.map(r => `
+      <div class="rec-card">
+        <div class="rec-header">
+          <span>${r.icon}</span>
+          <span>${r.title}</span>
+          <span class="rec-priority" style="background:${r.pBg};color:${r.pColor}">${r.priority}</span>
+        </div>
+        <div class="rec-body">${r.body}</div>
+      </div>
+    `).join('');
+  }
+</script>
+</body>
+</html>
