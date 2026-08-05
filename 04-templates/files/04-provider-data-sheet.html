@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Provider Data Collection Sheet</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#1E293B;background:#fff;padding:36px;max-width:780px;margin:0 auto;font-size:13px}
+  @media print{body{padding:16px}@page{margin:1.2cm}button{display:none!important}}
+  .logo-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid #1B3A6B}
+  .logo{font-size:17px;font-weight:800;color:#1B3A6B}
+  .logo span{color:#0EA5E9}
+  .doc-meta{font-size:11px;color:#64748B;text-align:right;line-height:1.5}
+  h1{font-size:22px;font-weight:800;color:#1B3A6B;margin-bottom:4px}
+  .subtitle{font-size:13px;color:#64748B;margin-bottom:24px}
+  .instructions{background:#FFF7ED;border-left:4px solid #F59E0B;padding:12px 14px;border-radius:0 6px 6px 0;font-size:12px;color:#92400E;margin-bottom:24px;line-height:1.5}
+  .section{margin-bottom:24px}
+  .section-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:#1B3A6B;padding:8px 14px;border-radius:6px 6px 0 0}
+  .section-body{border:1px solid #E2E8F0;border-top:none;border-radius:0 0 6px 6px;padding:16px}
+  .grid{display:grid;gap:12px}
+  .grid-2{grid-template-columns:1fr 1fr}
+  .grid-3{grid-template-columns:1fr 1fr 1fr}
+  @media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr}}
+  .field label{display:block;font-size:11px;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+  .field input,.field select,.field textarea{width:100%;border:1px solid #CBD5E1;border-radius:5px;padding:7px 10px;font-size:13px;font-family:inherit;color:#1E293B;background:#FAFBFC}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#0EA5E9;background:#fff}
+  .field textarea{resize:vertical;min-height:60px}
+  .required::after{content:' *';color:#EF4444}
+  .row-divider{height:1px;background:#F1F5F9;margin:8px 0}
+  .yes-no{display:flex;gap:20px;align-items:center;padding:6px 0}
+  .yes-no label{font-size:13px;font-weight:500;color:#1E293B;display:flex;align-items:center;gap:6px;cursor:pointer;text-transform:none;letter-spacing:0}
+  .yes-no input[type=radio]{width:16px;height:16px;cursor:pointer}
+  .sub-label{font-size:11px;font-weight:600;color:#64748B;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 6px;padding-top:8px;border-top:1px dashed #E2E8F0}
+  .note{font-size:11px;color:#94A3B8;margin-top:3px;font-style:italic}
+  .signature-area{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  .sig-line{border-bottom:1px solid #1E293B;height:36px;margin-bottom:4px}
+  .sig-label{font-size:11px;color:#64748B}
+  .footer{margin-top:28px;padding-top:14px;border-top:1px solid #E2E8F0;display:flex;justify-content:space-between;font-size:10px;color:#94A3B8}
+  .btn-print{display:inline-flex;align-items:center;gap:6px;background:#1B3A6B;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:20px}
+  .btn-print:hover{background:#152e57}
+  .alert{background:#FEE2E2;border:1px solid #FCA5A5;border-radius:6px;padding:10px 14px;font-size:12px;color:#991B1B;margin-bottom:16px;display:none}
+</style>
+</head>
+<body>
+
+<button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+<div class="logo-bar">
+  <div class="logo">The Marketing<span>Pros</span></div>
+  <div class="doc-meta">Provider Data Collection Sheet<br>CONFIDENTIAL — For credentialing use only<br>Version 1.0</div>
+</div>
+
+<h1>Provider Data Collection Sheet</h1>
+<p class="subtitle">Complete all fields before submitting any credentialing applications. Missing data = application delays.</p>
+
+<div class="instructions">
+  <strong>Instructions for practice managers:</strong> Send this form to each new provider on their first day. Collect the completed form along with physical copies of all documents listed in Section 7 before beginning any credentialing application. Fields marked * are required for every application.
+</div>
+
+<!-- Section 1: Personal Info -->
+<div class="section">
+  <div class="section-title">1 — Personal & Professional Information</div>
+  <div class="section-body">
+    <div class="grid grid-3">
+      <div class="field"><label class="required">Legal Last Name</label><input type="text" placeholder="As it appears on license"/></div>
+      <div class="field"><label class="required">Legal First Name</label><input type="text" placeholder="As it appears on license"/></div>
+      <div class="field"><label>Middle Name / Initial</label><input type="text" placeholder=""/></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div class="field"><label>Preferred Name / Goes By</label><input type="text"/></div>
+      <div class="field"><label class="required">Credentials / Degree</label><input type="text" placeholder="MD, DO, NP, PA, etc."/></div>
+      <div class="field"><label class="required">Date of Birth</label><input type="date"/></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="field"><label class="required">Social Security Number (last 4)</label><input type="text" placeholder="XXX-XX-____" maxlength="4"/><div class="note">Full SSN collected separately via secure intake — document this form only shows last 4</div></div>
+      <div class="field"><label>Gender (as listed on professional license)</label><select><option value="">Select</option><option>Male</option><option>Female</option><option>Non-binary</option><option>Prefer not to say</option></select></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="field"><label class="required">Home Address</label><input type="text" placeholder="Street, City, State, ZIP"/></div>
+      <div class="field"><label class="required">Personal Cell Phone</label><input type="tel" placeholder="(555) 000-0000"/></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="field"><label class="required">Personal Email (for payer correspondence)</label><input type="email" placeholder="provider@email.com"/></div>
+      <div class="field"><label>Languages Spoken</label><input type="text" placeholder="English, Spanish, etc."/></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2: License & NPI -->
+<div class="section">
+  <div class="section-title">2 — Licensure & NPI</div>
+  <div class="section-body">
+    <div class="grid grid-2">
+      <div class="field"><label class="required">Individual NPI (Type 1)</label><input type="text" placeholder="10-digit NPI"/><div class="note">Verify at npiregistry.cms.hhs.gov</div></div>
+      <div class="field"><label class="required">Primary State of Licensure</label><input type="text" placeholder="State"/></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div class="field"><label class="required">Medical License Number</label><input type="text" placeholder=""/></div>
+      <div class="field"><label class="required">License Issue Date</label><input type="date"/></div>
+      <div class="field"><label class="required">License Expiration Date</label><input type="date"/></div>
+    </div>
+    <div class="sub-label">Additional State Licenses (if applicable)</div>
+    <div class="grid grid-3">
+      <div class="field"><label>State</label><input type="text"/></div>
+      <div class="field"><label>License Number</label><input type="text"/></div>
+      <div class="field"><label>Expiration Date</label><input type="date"/></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:8px">
+      <div class="field"><label>State</label><input type="text"/></div>
+      <div class="field"><label>License Number</label><input type="text"/></div>
+      <div class="field"><label>Expiration Date</label><input type="date"/></div>
+    </div>
+    <div class="row-divider"></div>
+    <div class="grid grid-3" style="margin-top:4px">
+      <div class="field"><label>DEA Certificate Number</label><input type="text" placeholder="If applicable"/></div>
+      <div class="field"><label>DEA Issue Date</label><input type="date"/></div>
+      <div class="field"><label>DEA Expiration Date</label><input type="date"/></div>
+    </div>
+    <div class="field" style="margin-top:12px"><label>DEA State(s) / Address on Certificate</label><input type="text" placeholder="Must match practice address on each application"/></div>
+    <div class="row-divider"></div>
+    <div class="grid grid-2" style="margin-top:4px">
+      <div class="field"><label>CAQH ProView ID (if existing)</label><input type="text" placeholder="Provider CAQH ID"/></div>
+      <div class="field"><label>CAQH Last Attestation Date</label><input type="date"/><div class="note">Must be within 120 days — re-attest if expired</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: Education -->
+<div class="section">
+  <div class="section-title">3 — Education & Training</div>
+  <div class="section-body">
+    <div class="grid grid-2">
+      <div class="field"><label class="required">Medical School Name</label><input type="text"/></div>
+      <div class="field"><label class="required">Medical School Location (City, State, Country)</label><input type="text"/></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="field"><label class="required">Medical School Graduation Date</label><input type="date"/></div>
+      <div class="field"><label>Degree Awarded</label><input type="text" placeholder="MD, DO, etc."/></div>
+    </div>
+    <div class="sub-label">Internship</div>
+    <div class="grid grid-3">
+      <div class="field"><label>Institution</label><input type="text"/></div>
+      <div class="field"><label>Start Date</label><input type="date"/></div>
+      <div class="field"><label>End Date</label><input type="date"/></div>
+    </div>
+    <div class="sub-label">Residency</div>
+    <div class="grid grid-3">
+      <div class="field"><label>Institution</label><input type="text"/></div>
+      <div class="field"><label>Specialty</label><input type="text"/></div>
+      <div class="field"><label>Start / End Date</label><input type="text" placeholder="MM/YYYY – MM/YYYY"/></div>
+    </div>
+    <div class="sub-label">Fellowship (if applicable)</div>
+    <div class="grid grid-3">
+      <div class="field"><label>Institution</label><input type="text"/></div>
+      <div class="field"><label>Specialty</label><input type="text"/></div>
+      <div class="field"><label>Start / End Date</label><input type="text" placeholder="MM/YYYY – MM/YYYY"/></div>
+    </div>
+    <div class="sub-label">Board Certification(s)</div>
+    <div class="grid grid-3">
+      <div class="field"><label>Certifying Board</label><input type="text"/></div>
+      <div class="field"><label>Certification Date</label><input type="date"/></div>
+      <div class="field"><label>Expiration Date (if time-limited)</label><input type="date"/></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: Malpractice -->
+<div class="section">
+  <div class="section-title">4 — Malpractice Insurance</div>
+  <div class="section-body">
+    <div class="grid grid-2">
+      <div class="field"><label class="required">Current Malpractice Carrier</label><input type="text"/></div>
+      <div class="field"><label class="required">Policy Number</label><input type="text"/></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div class="field"><label class="required">Coverage Per Occurrence</label><input type="text" placeholder="$1,000,000"/></div>
+      <div class="field"><label class="required">Aggregate Coverage</label><input type="text" placeholder="$3,000,000"/></div>
+      <div class="field"><label class="required">Policy Expiration Date</label><input type="date"/></div>
+    </div>
+    <div class="row-divider"></div>
+    <div class="field" style="margin-top:8px"><label>Prior carrier(s) — last 5 years (carrier name, policy #, dates)</label><textarea placeholder="List all prior malpractice carriers with dates. Include tail coverage carrier if applicable."></textarea></div>
+    <div style="margin-top:12px">
+      <div style="font-size:12px;font-weight:600;color:#475569;margin-bottom:8px">Have there been any malpractice claims, settlements, or judgments in the past 10 years?</div>
+      <div class="yes-no">
+        <label><input type="radio" name="malpractice_claims" value="no"/> No</label>
+        <label><input type="radio" name="malpractice_claims" value="yes"/> Yes — provide details below</label>
+      </div>
+      <textarea style="width:100%;margin-top:8px;border:1px solid #CBD5E1;border-radius:5px;padding:8px;font-family:inherit;font-size:13px;min-height:60px" placeholder="If yes: date, claimant, nature of claim, outcome, settlement amount (if any)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Hospital Affiliations -->
+<div class="section">
+  <div class="section-title">5 — Hospital Affiliations & Privileges</div>
+  <div class="section-body">
+    <div class="grid grid-3">
+      <div class="field"><label>Hospital Name</label><input type="text"/></div>
+      <div class="field"><label>Privilege Type</label><select><option value="">Select</option><option>Full Privileges</option><option>Courtesy Privileges</option><option>Consulting Privileges</option><option>Admitting Privileges</option><option>None</option></select></div>
+      <div class="field"><label>Since (Date)</label><input type="date"/></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:8px">
+      <div class="field"><label>Hospital Name</label><input type="text"/></div>
+      <div class="field"><label>Privilege Type</label><select><option value="">Select</option><option>Full Privileges</option><option>Courtesy Privileges</option><option>Consulting Privileges</option><option>Admitting Privileges</option><option>None</option></select></div>
+      <div class="field"><label>Since (Date)</label><input type="date"/></div>
+    </div>
+    <div style="margin-top:12px">
+      <div style="font-size:12px;font-weight:600;color:#475569;margin-bottom:8px">Have hospital privileges ever been denied, restricted, suspended, or revoked?</div>
+      <div class="yes-no">
+        <label><input type="radio" name="privileges" value="no"/> No</label>
+        <label><input type="radio" name="privileges" value="yes"/> Yes — provide details</label>
+      </div>
+      <textarea style="width:100%;margin-top:8px;border:1px solid #CBD5E1;border-radius:5px;padding:8px;font-family:inherit;font-size:13px;min-height:50px" placeholder="If yes: facility, date, reason, outcome"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Employment History -->
+<div class="section">
+  <div class="section-title">6 — Work History (last 5 years)</div>
+  <div class="section-body">
+    <div class="grid grid-2">
+      <div class="field"><label>Employer / Practice Name</label><input type="text"/></div>
+      <div class="field"><label>Start / End Date</label><input type="text" placeholder="MM/YYYY – MM/YYYY or Present"/></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:8px">
+      <div class="field"><label>Employer / Practice Name</label><input type="text"/></div>
+      <div class="field"><label>Start / End Date</label><input type="text" placeholder="MM/YYYY – MM/YYYY"/></div>
+    </div>
+    <div class="field" style="margin-top:12px"><label>Explain any gaps in employment (> 30 days)</label><textarea placeholder="Dates and reason for any gap periods"></textarea></div>
+  </div>
+</div>
+
+<!-- Section 7: Document Checklist -->
+<div class="section">
+  <div class="section-title">7 — Document Collection Checklist</div>
+  <div class="section-body">
+    <p style="font-size:12px;color:#64748B;margin-bottom:12px">Check each box once the document has been received and verified. Do not begin applications until all critical documents are in hand.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Medical license (current, unrestricted)</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ DEA certificate (if applicable)</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ NPI confirmation letter / NPPES printout</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Malpractice certificate of insurance</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Board certification certificate(s)</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Medical school diploma</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Internship / residency completion letter</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Fellowship completion letter (if applicable)</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Current CV (updated within last 6 months)</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Government-issued photo ID</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ W-9 (for billing setup)</span></label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:13px;cursor:pointer"><input type="checkbox" style="width:16px;height:16px;margin-top:1px"/> <span>✅ Signed HIPAA business associate agreement</span></label>
+    </div>
+  </div>
+</div>
+
+<!-- Signature -->
+<div class="section">
+  <div class="section-title">8 — Provider Certification & Signature</div>
+  <div class="section-body">
+    <p style="font-size:13px;color:#475569;margin-bottom:16px;line-height:1.6">I certify that all information provided on this form is accurate and complete to the best of my knowledge. I understand that omissions or misrepresentations may result in credentialing denial or termination. I authorize The Marketing Pros and its affiliated practices to submit this information to payers and credentialing organizations on my behalf.</p>
+    <div class="signature-area">
+      <div>
+        <div class="sig-line"></div>
+        <div class="sig-label">Provider Signature</div>
+      </div>
+      <div>
+        <div class="sig-line"></div>
+        <div class="sig-label">Date</div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="sig-line" style="max-width:300px"></div>
+      <div class="sig-label">Printed Name</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>© The Marketing Pros | themarketingpros.com | CONFIDENTIAL — For credentialing use only</span>
+  <span>Version 1.0 | 2026</span>
+</div>
+
+</body>
+</html>

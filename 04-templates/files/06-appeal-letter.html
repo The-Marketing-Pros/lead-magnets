@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Claim Denial Appeal Letter Template</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Times New Roman',Times,Georgia,serif;color:#1a1a1a;background:#fff;padding:40px;max-width:760px;margin:0 auto;font-size:14px;line-height:1.7}
+  @media print{body{padding:16px}.no-print{display:none!important}.controls{display:none!important}@page{margin:2cm}}
+
+  /* Controls bar — hidden on print */
+  .controls{background:#1B3A6B;color:#fff;padding:14px 20px;margin:-40px -40px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .controls h2{font-size:14px;font-weight:700;font-family:system-ui,sans-serif;letter-spacing:0}
+  .btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:7px 14px;border-radius:5px;font-size:13px;font-weight:600;cursor:pointer;font-family:system-ui,sans-serif;transition:background .15s}
+  .btn:hover{background:rgba(255,255,255,.25)}
+  .btn-green{background:#10B981;border-color:#10B981}
+  .btn-green:hover{background:#059669;border-color:#059669}
+  select.denial-type{padding:7px 12px;border-radius:5px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:13px;font-family:system-ui,sans-serif;cursor:pointer}
+  select.denial-type option{color:#1E293B;background:#fff}
+
+  /* Field highlights */
+  .f{background:#FEF9C3;border-bottom:1.5px dashed #CA8A04;cursor:text;padding:0 3px;border-radius:2px;min-width:80px;display:inline-block;font-style:italic;color:#713F12}
+  .f:focus{outline:2px solid #0EA5E9;background:#EFF6FF;font-style:normal;color:#1E293B}
+  .f.optional{background:#F0FDF4;border-bottom-color:#16A34A;color:#166534}
+
+  /* Document layout */
+  .letterhead{border-bottom:2px solid #1B3A6B;padding-bottom:16px;margin-bottom:24px}
+  .practice-name{font-size:18px;font-weight:700;color:#1B3A6B;font-family:system-ui,sans-serif}
+  .practice-meta{font-size:12px;color:#475569;font-family:system-ui,sans-serif;margin-top:2px}
+  .date-block{margin-bottom:20px}
+  .addr-block{margin-bottom:20px;line-height:1.5}
+  .re-block{margin-bottom:20px}
+  .re-line{display:flex;gap:8px;align-items:baseline;margin-bottom:4px}
+  .re-label{font-weight:700;min-width:120px;font-family:system-ui,sans-serif;font-size:13px}
+  p{margin-bottom:14px}
+  .argument{margin:14px 0;padding:14px 16px;border-left:3px solid #1B3A6B;background:#F8FAFC;font-family:system-ui,sans-serif;font-size:13px;line-height:1.6;display:none}
+  .argument.active{display:block}
+  .argument h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#1B3A6B;margin-bottom:8px}
+  ul{margin-left:20px;margin-bottom:14px}
+  li{margin-bottom:6px}
+  .closing{margin-top:24px}
+  .sig-area{margin-top:36px}
+  .sig-line{border-bottom:1px solid #1a1a1a;width:280px;margin-bottom:4px}
+  .sig-label{font-size:12px;color:#475569;font-family:system-ui,sans-serif}
+  .enclosures{margin-top:20px;font-size:13px}
+  .helper-note{font-family:system-ui,sans-serif;font-size:11px;color:#94A3B8;font-style:normal;margin-top:6px;display:block}
+  .section-break{height:1px;background:#E2E8F0;margin:20px 0}
+  .type-label{display:inline-block;background:#1B3A6B;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;margin-bottom:10px;font-family:system-ui,sans-serif;letter-spacing:.05em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <h2>📄 Appeal Letter Template</h2>
+  <select class="denial-type" onchange="setDenialType(this.value)">
+    <option value="credentialing">Denial Type: Not Credentialed</option>
+    <option value="timely">Denial Type: Timely Filing</option>
+    <option value="necessity">Denial Type: Medical Necessity</option>
+    <option value="oon">Denial Type: Out of Network</option>
+  </select>
+  <button class="btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <button class="btn btn-green" onclick="copyToClipboard()">📋 Copy All Text</button>
+</div>
+
+<!-- LETTERHEAD -->
+<div class="letterhead">
+  <div class="practice-name"><span class="f" contenteditable="true">Practice / Organization Name</span></div>
+  <div class="practice-meta">
+    <span class="f" contenteditable="true">Street Address, City, State ZIP</span> |
+    Phone: <span class="f" contenteditable="true">(555) 000-0000</span> |
+    NPI: <span class="f" contenteditable="true">XXXXXXXXXX</span>
+  </div>
+</div>
+
+<!-- DATE -->
+<div class="date-block">
+  <span class="f" contenteditable="true">Date</span>
+</div>
+
+<!-- ADDRESSEE -->
+<div class="addr-block">
+  <strong>Appeals Department</strong><br>
+  <span class="f" contenteditable="true">Payer / Insurance Company Name</span><br>
+  <span class="f" contenteditable="true">Payer Address, City, State ZIP</span>
+</div>
+
+<!-- RE LINE -->
+<div class="re-block">
+  <div class="re-line"><span class="re-label">RE:</span> <strong>Formal Appeal of Claim Denial — Request for Reconsideration</strong></div>
+  <div class="re-line"><span class="re-label">Patient:</span> <span class="f" contenteditable="true">Patient Full Name</span></div>
+  <div class="re-line"><span class="re-label">Date of Birth:</span> <span class="f" contenteditable="true">MM/DD/YYYY</span></div>
+  <div class="re-line"><span class="re-label">Member ID:</span> <span class="f" contenteditable="true">Member / Policy ID</span></div>
+  <div class="re-line"><span class="re-label">Claim Number:</span> <span class="f" contenteditable="true">Claim #</span></div>
+  <div class="re-line"><span class="re-label">Date(s) of Service:</span> <span class="f" contenteditable="true">MM/DD/YYYY</span></div>
+  <div class="re-line"><span class="re-label">Service Billed:</span> <span class="f" contenteditable="true">CPT Code(s) and description</span></div>
+  <div class="re-line"><span class="re-label">Amount Denied:</span> <span class="f" contenteditable="true">$0.00</span></div>
+  <div class="re-line"><span class="re-label">Denial Reason:</span> <span class="f" contenteditable="true">Denial code and reason as stated on EOB</span></div>
+</div>
+
+<div class="section-break"></div>
+
+<p>Dear Appeals Department,</p>
+
+<p>This letter constitutes a formal appeal of the above-referenced claim denial on behalf of <span class="f" contenteditable="true">rendering provider name and credentials</span> of <span class="f" contenteditable="true">practice name</span>. We respectfully request that your organization reconsider this denial and process the claim for payment in accordance with our provider agreement and your coverage policies.</p>
+
+<!-- CREDENTIALING ARGUMENT -->
+<div class="argument active" id="arg-credentialing">
+  <div class="type-label">Not Credentialed Denial</div>
+  <h4>Argument: Provider Was Credentialed at Time of Service</h4>
+  <p>The claim was denied on the basis that <span class="f" contenteditable="true">provider name</span> was not credentialed with <span class="f" contenteditable="true">payer name</span> at the time of service. This determination is incorrect. We provide the following evidence:</p>
+  <ul>
+    <li><strong>Credentialing Application Date:</strong> <span class="f" contenteditable="true">MM/DD/YYYY</span> — Our application was submitted within your standard processing window. Any delay in credentialing processing should not be charged to the patient or result in a claim denial.</li>
+    <li><strong>Effective Date of Credentialing:</strong> <span class="f" contenteditable="true">MM/DD/YYYY</span> — The approved effective date confirmed in your correspondence letter dated <span class="f" contenteditable="true">MM/DD/YYYY</span> precedes the date of service.</li>
+    <li><strong>Applicable Provision:</strong> Most payer agreements and state insurance regulations allow retroactive credentialing to the application date when provider applied in good faith. <span class="f optional" contenteditable="true">[cite applicable state law or contract provision if known]</span></li>
+  </ul>
+  <p>We request that this claim be reprocessed with an effective credentialing date of <span class="f" contenteditable="true">MM/DD/YYYY</span>. Enclosed: copy of credentialing approval letter, application confirmation, and relevant contract provisions.</p>
+</div>
+
+<!-- TIMELY FILING ARGUMENT -->
+<div class="argument" id="arg-timely">
+  <div class="type-label">Timely Filing Denial</div>
+  <h4>Argument: Claim Was Submitted Within the Required Filing Period</h4>
+  <p>The claim was denied for failure to submit within the timely filing window. We dispute this denial on the following grounds:</p>
+  <ul>
+    <li><strong>Original Submission Date:</strong> <span class="f" contenteditable="true">MM/DD/YYYY</span> — The claim was submitted within your required filing window of <span class="f" contenteditable="true">X days</span> from the date of service (<span class="f" contenteditable="true">MM/DD/YYYY</span>).</li>
+    <li><strong>Evidence of Timely Filing:</strong> Enclosed is our clearinghouse confirmation / electronic submission log showing the claim was received by your system on <span class="f" contenteditable="true">MM/DD/YYYY</span>.</li>
+    <li><strong>Alternative Basis:</strong> <span class="f optional" contenteditable="true">[If applicable: The timely filing period was extended due to payer processing error, coordination of benefits delay, or other extenuating circumstance — describe here]</span></li>
+  </ul>
+  <p>We request reprocessing of this claim based on the original submission date. Enclosed: clearinghouse confirmation report, ERA/remittance history, and original claim copy.</p>
+</div>
+
+<!-- MEDICAL NECESSITY ARGUMENT -->
+<div class="argument" id="arg-necessity">
+  <div class="type-label">Medical Necessity Denial</div>
+  <h4>Argument: Services Were Medically Necessary and Covered Under the Member's Plan</h4>
+  <p>The claim was denied on the basis of medical necessity. We strongly disagree with this determination and submit the following in support of our appeal:</p>
+  <ul>
+    <li><strong>Clinical Basis:</strong> <span class="f" contenteditable="true">Patient name</span> presented with <span class="f" contenteditable="true">diagnosis/condition</span> (ICD-10: <span class="f" contenteditable="true">code</span>). The services billed (CPT <span class="f" contenteditable="true">code</span>) represent the standard of care for this condition as supported by <span class="f optional" contenteditable="true">[clinical guidelines, peer-reviewed literature, or specialty society guidelines — cite specifically]</span>.</li>
+    <li><strong>Provider Attestation:</strong> <span class="f" contenteditable="true">Provider name</span> attests that the services provided were medically necessary, appropriate for the patient's condition, and would not have been provided if not required for the patient's care and treatment.</li>
+    <li><strong>Coverage Policy:</strong> A review of the member's Summary of Benefits and the applicable Coverage Policy <span class="f" contenteditable="true">[policy number if known]</span> supports coverage for these services under the stated clinical circumstances.</li>
+  </ul>
+  <p>We request an independent clinical review by a physician reviewer in the same specialty, as required under most state appeal regulations. Enclosed: clinical notes, operative report (if applicable), relevant imaging/lab results, and supporting clinical literature.</p>
+</div>
+
+<!-- OON ARGUMENT -->
+<div class="argument" id="arg-oon">
+  <div class="type-label">Out of Network Denial</div>
+  <h4>Argument: Services Were Rendered Under Emergency / Continuity of Care Provisions</h4>
+  <p>The claim was denied on the basis that <span class="f" contenteditable="true">provider name</span> is out-of-network. We request reconsideration under the following provisions:</p>
+  <ul>
+    <li><strong>Basis for Appeal:</strong> <span class="f optional" contenteditable="true">[Select and complete the applicable basis:]</span>
+      <ul style="margin-top:8px">
+        <li><span class="f optional" contenteditable="true">[Emergency basis: Services were rendered in an emergency situation where the patient had no reasonable opportunity to seek an in-network provider. Under the No Surprises Act / state emergency provisions, out-of-network claims for emergency services must be processed at in-network benefit levels.]</span></li>
+        <li><span class="f optional" contenteditable="true">[Continuity of care: Patient was an established patient of this provider prior to the provider's network termination / prior to the patient's insurance change. State continuity of care laws require transition period coverage at in-network rates.]</span></li>
+        <li><span class="f optional" contenteditable="true">[No in-network alternative: No in-network provider with the required specialty was available within a reasonable geographic distance. Please provide the network adequacy analysis for this specialty in this zip code.]</span></li>
+      </ul>
+    </li>
+    <li><strong>No Surprises Act (if applicable):</strong> If this claim involves services at an in-network facility, the No Surprises Act prohibits surprise billing and requires in-network cost-sharing apply to out-of-network providers in those settings.</li>
+  </ul>
+  <p>We request reprocessing at in-network benefit levels. Enclosed: documentation supporting the basis for appeal listed above, patient treatment records, and applicable regulatory references.</p>
+</div>
+
+<div class="section-break"></div>
+
+<p><strong>Resolution Requested:</strong> We respectfully request that <span class="f" contenteditable="true">payer name</span> reconsider this denial and process the claim for the full billed amount of <span class="f" contenteditable="true">$0.00</span>, or at the contracted/applicable rate, within <span class="f" contenteditable="true">30</span> business days of receipt of this appeal.</p>
+
+<p>Should you require additional information or documentation, please contact our billing office at <span class="f" contenteditable="true">(555) 000-0000</span> or <span class="f" contenteditable="true">billing@practice.com</span>. We are committed to resolving this matter promptly and professionally.</p>
+
+<div class="closing">
+  <p>Sincerely,</p>
+  <div class="sig-area">
+    <div>
+      <div class="sig-line"></div>
+      <div class="sig-label"><span class="f" contenteditable="true">Provider / Billing Manager Name, Credentials</span></div>
+      <div class="sig-label"><span class="f" contenteditable="true">Title</span></div>
+      <div class="sig-label"><span class="f" contenteditable="true">Practice Name</span></div>
+      <div class="sig-label">Date: <span class="f" contenteditable="true">MM/DD/YYYY</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section-break"></div>
+
+<div class="enclosures">
+  <strong>Enclosures:</strong>
+  <span class="helper-note">Check all that apply and include copies — do not send originals</span>
+  <ul style="margin-top:10px;font-size:13px">
+    <li>☐ Original claim (CMS-1500 or UB-04)</li>
+    <li>☐ Explanation of Benefits (EOB) / Remittance Advice with denial</li>
+    <li>☐ Clearinghouse submission confirmation / electronic submission log</li>
+    <li>☐ Clinical notes / operative report / relevant records</li>
+    <li>☐ Credentialing approval letter / effective date confirmation</li>
+    <li>☐ Supporting clinical literature or guidelines</li>
+    <li>☐ Patient authorization (if required by payer for appeal)</li>
+    <li>☐ <span class="f optional" contenteditable="true">[Other: specify]</span></li>
+  </ul>
+</div>
+
+<script>
+  function setDenialType(type) {
+    document.querySelectorAll('.argument').forEach(a => a.classList.remove('active'));
+    const target = document.getElementById('arg-' + type);
+    if (target) target.classList.add('active');
+  }
+
+  function copyToClipboard() {
+    const text = document.body.innerText
+      .split('\n')
+      .filter(l => !l.includes('Appeal Letter Template') && !l.includes('Print') && !l.includes('Copy All'))
+      .join('\n');
+    navigator.clipboard.writeText(text).then(() => alert('Letter text copied to clipboard. Paste into Word or Google Docs.'));
+  }
+</script>
+</body>
+</html>

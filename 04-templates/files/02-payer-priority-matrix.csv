@@ -1,0 +1,29 @@
+PAYER PRIORITY MATRIX — The Marketing Pros (themarketingpros.com),,,,,,,,
+Instructions: Score each payer 1–5 on each factor. Total score determines application priority order. Apply highest scores first.,,,,,,,,
+,,,,,,,,
+SCORING GUIDE,,,,,,,,
+1 = Very Low | 2 = Low | 3 = Medium | 4 = High | 5 = Very High,,,,,,,,
+,,,,,,,,
+PAYER,PAYER TYPE,EXPECTED PATIENT VOLUME (1-5),REIMBURSEMENT RATE vs. MEDICARE (1-5),APPLICATION COMPLEXITY — LOWER IS BETTER (1-5 inverted),TIMELINE TO APPROVAL — SHORTER IS BETTER (1-5 inverted),IN-NETWORK PATIENT DEMAND (1-5),STRATEGIC IMPORTANCE (1-5),TOTAL SCORE (max 30),PRIORITY RANK,NOTES / STRATEGY
+Medicare,Government,5,3,4,2,5,5,24,1,Apply first — required for most specialty referrals; PECOS enrollment
+Medicaid — [State],Government,4,2,3,2,4,4,19,2,Required for Medicaid patient access; state portal varies
+BCBS [Region],Commercial,4,4,3,3,4,4,22,2,Largest commercial network in most markets; negotiate rate at credentialing
+Aetna,Commercial,3,4,3,3,3,4,20,3,Strong employer plan base; above-market rates available
+UnitedHealthcare,Commercial,4,4,2,2,4,5,21,2,Largest commercial payer nationally; longest timelines — start early
+Cigna,Commercial,3,4,3,3,3,3,19,4,Good employer plan coverage; negotiate before signing
+Humana,Commercial,3,3,3,3,2,3,17,5,Stronger in Medicare Advantage; evaluate MA volume
+[Commercial Payer],Commercial,,,,,,,0,,Add your market-specific payers
+[Commercial Payer],Commercial,,,,,,,0,,
+[Workers Comp],Other,2,3,4,3,1,2,15,,Workers comp rates vary widely; often worth excluding
+[Tricare],Government,2,3,3,3,2,3,16,,Military — evaluate if near military base
+[Medicare Advantage — Plan],MA,3,3,3,3,3,4,19,,Each MA plan credentials separately from Medicare
+,,,,,,,,
+,,,,,,,,
+REIMBURSEMENT REFERENCE,,,,,,,,
+Medicare rates = 100% baseline,,,,,,,,
+BCBS: typically 110–130% Medicare in most markets,,,,,,,,
+Aetna: typically 110–125% Medicare,,,,,,,,
+UHC: typically 105–120% Medicare,,,,,,,,
+Medicaid: typically 60–80% Medicare (state-dependent),,,,,,,,
+,,,,,,,,
+TIP: Focus your first 60 days on top 3 priority payers. Don't spread applications across 10 payers simultaneously — quality beats quantity.,,,,,,,,

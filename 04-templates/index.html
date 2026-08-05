@@ -564,8 +564,16 @@
         <div class="download-success" id="successState">
           <div class="check-circle">✓</div>
           <h3>Templates ready for download!</h3>
-          <p>Check your email — all 6 templates are on their way. They also live in your Downloads folder if you're on a desktop browser.</p>
-          <a href="#" class="btn-consult" onclick="return false;">Book a Free Strategy Call →</a>
+          <p>All 6 files are downloading now. If any didn't start, grab them individually below:</p>
+          <div style="text-align:left;margin-bottom:20px">
+            <a href="files/01-credentialing-tracker.csv" download style="display:block;padding:8px 12px;background:#F1F5F9;border-radius:6px;text-decoration:none;color:#1B3A6B;font-size:13px;font-weight:600;margin-bottom:6px">📊 Credentialing Tracker (CSV)</a>
+            <a href="files/02-payer-priority-matrix.csv" download style="display:block;padding:8px 12px;background:#F1F5F9;border-radius:6px;text-decoration:none;color:#1B3A6B;font-size:13px;font-weight:600;margin-bottom:6px">🎯 Payer Priority Matrix (CSV)</a>
+            <a href="files/03-caqh-checklist.html" download style="display:block;padding:8px 12px;background:#F1F5F9;border-radius:6px;text-decoration:none;color:#1B3A6B;font-size:13px;font-weight:600;margin-bottom:6px">📋 CAQH Quick-Start Checklist (HTML/PDF)</a>
+            <a href="files/04-provider-data-sheet.html" download style="display:block;padding:8px 12px;background:#F1F5F9;border-radius:6px;text-decoration:none;color:#1B3A6B;font-size:13px;font-weight:600;margin-bottom:6px">👤 Provider Data Collection Sheet (HTML/PDF)</a>
+            <a href="files/05-credentialing-timeline.csv" download style="display:block;padding:8px 12px;background:#F1F5F9;border-radius:6px;text-decoration:none;color:#1B3A6B;font-size:13px;font-weight:600;margin-bottom:6px">📅 Credentialing Timeline (CSV)</a>
+            <a href="files/06-appeal-letter.html" download style="display:block;padding:8px 12px;background:#F1F5F9;border-radius:6px;text-decoration:none;color:#1B3A6B;font-size:13px;font-weight:600">✉️ Claim Denial Appeal Letter (Interactive HTML)</a>
+          </div>
+          <a href="https://providerenrollmentservices.com/contact" class="btn-consult">Book a Free Strategy Call →</a>
         </div>
       </div>
     </div>
@@ -717,14 +725,35 @@
 </div>
 
 <script>
+  const TEMPLATE_FILES = [
+    ['01-credentialing-tracker.csv',  'files/01-credentialing-tracker.csv'],
+    ['02-payer-priority-matrix.csv',   'files/02-payer-priority-matrix.csv'],
+    ['03-caqh-checklist.html',         'files/03-caqh-checklist.html'],
+    ['04-provider-data-sheet.html',    'files/04-provider-data-sheet.html'],
+    ['05-credentialing-timeline.csv',  'files/05-credentialing-timeline.csv'],
+    ['06-appeal-letter.html',          'files/06-appeal-letter.html'],
+  ];
+
   function submitDownload() {
     const first = document.getElementById('gFirst').value.trim();
     const email = document.getElementById('gEmail').value.trim();
     if (!first || !email) { alert('Please enter your first name and email.'); return; }
-    // In production: POST to CRM + trigger email with templates attached
+    // In production: POST to CRM here
+
+    // Trigger sequential downloads with stagger
+    TEMPLATE_FILES.forEach(([filename, path], i) => {
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = path;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, i * 400);
+    });
+
     document.getElementById('formState').style.display = 'none';
     document.getElementById('successState').style.display = 'block';
-    // Scroll to top of card
     document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 </script>
