@@ -1,5 +1,5 @@
 """
-Build smart Excel template files for The Marketing Pros lead magnet pack.
+Build smart Excel template files — white-label, sample-branded for lead magnet pack.
 """
 import openpyxl
 from openpyxl.styles import (
@@ -90,7 +90,7 @@ def build_tracker():
 
     dash.merge_cells("B3:K3")
     sub = dash["B3"]
-    sub.value = "The Marketing Pros  ·  themarketingpros.com  ·  Last updated: auto"
+    sub.value = "Riverside Medical Group  ·  Sample Data — Replace with your practice name  ·  Last updated: auto"
     sub.font = Font(name="Calibri", color="94A3B8", size=10, italic=True)
     sub.fill = fill(NAVY)
     sub.alignment = align("left", "center")
@@ -331,7 +331,7 @@ def build_payer_matrix():
     # Title
     ws.merge_cells("A1:L1")
     t = ws["A1"]
-    t.value = "PAYER PRIORITY MATRIX  ·  The Marketing Pros"
+    t.value = "PAYER PRIORITY MATRIX  ·  Riverside Medical Group  (Sample)"
     t.font = Font(name="Calibri", bold=True, color=WHITE, size=16)
     t.fill = fill(NAVY)
     t.alignment = align("left", "center")
@@ -520,7 +520,7 @@ def build_timeline():
     # Title
     ws.merge_cells("A1:J1")
     t = ws["A1"]
-    t.value = "PROVIDER CREDENTIALING TIMELINE  ·  The Marketing Pros"
+    t.value = "PROVIDER CREDENTIALING TIMELINE  ·  Riverside Medical Group  (Sample)"
     t.font = Font(name="Calibri", bold=True, color=WHITE, size=15)
     t.fill = fill(NAVY)
     t.alignment = align("left", "center")
